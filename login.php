@@ -11,9 +11,9 @@
             $user->setPassword($password);
 
             if($user->canLogin($email, $password)){
-                $user->setUserId($id);
                 $id = User::getIdByEmail($user->getEmail());
-                $user->startSession();
+                $user->setUserId($id);
+                $user->startSession();  
             }
         } catch (Throwable $error){
             $error = $error->getMessage();

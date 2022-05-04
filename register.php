@@ -10,12 +10,14 @@
                 $user->setLastname($_POST['lastname']);
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
-                $user->setUserId($id);
-
-                $user->register();
                 
+                $user->register();
+
                 $id = User::getIdByEmail($user->getEmail());
+                $user->setUserId($id);
+                
                 $user->startSession();
+                
                 
             }
         } catch (Throwable $error) {

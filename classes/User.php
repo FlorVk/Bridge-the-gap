@@ -124,17 +124,6 @@
                 }
         }
 
-        
-
-        public function startSession()
-        {
-            $sessionId = $this->getUserId();
-    
-            session_start();
-            $_SESSION['id'] = $sessionId;
-            header('location: index.php');
-        }
-
         public static function getIdByEmail($email)
         {
             $conn = Db::getInstance();
@@ -145,6 +134,24 @@
             return $result['id'];
         }
 
+        public static function getUserFromId($id)
+        {
+            $conn = Db::getInstance();
+            $sql = "SELECT * FROM `users` WHERE `id` = '$id';";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+
+        public function startSession() {
+            $sessionId = $this->getUserId();
+    
+            session_start();
+            $_SESSION['id'] = $sessionId;
+            header('location: index.php');
+        }
     }
 
 ?>

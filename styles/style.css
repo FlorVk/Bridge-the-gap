@@ -1,0 +1,7 @@
+.profilepicture_small {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
