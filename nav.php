@@ -9,9 +9,9 @@
         </ul>
 
         <form action="index.php" method="get">
-        <input type="text" name="search" placeholder="Search">
-        <input type="submit" value="Search">
-    </form>
+            <input type="text" name="search" placeholder="Search">
+            <input type="submit" value="Search">
+        </form>
     </div>
     <?php
     if (isset($_SESSION['id'])) {
@@ -20,7 +20,7 @@
 
         echo
             "<div>
-                <img class='profilepicture_small' src='./images/profilepictures/standard.png' alt=''>
+                <img class='profilepicture_small' src='./images/profilepictures/".$user['profilepicture']."' alt=''>
                 <p>".$user['firstname'] . ' ' .$user['lastname'] ."</p>
             </div>";
 

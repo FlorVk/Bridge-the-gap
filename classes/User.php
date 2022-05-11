@@ -87,6 +87,20 @@
             return $this->senior;
         }
 
+        public function setProfilePicture($profilepicture)
+        {
+            if (!empty($profilepicture)) {
+                $this->profilepicture = $profilepicture;
+                return $this;
+            } else {
+                throw new Exception("Foto mag niet leeg zijn");
+            }
+        }
+        public function getProfilePicture()
+        {
+            return $this->profilepicture;
+        }
+
         public function register()
         {
                 $options = [
@@ -95,11 +109,12 @@
 
                 $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
                 $conn = Db::getInstance();
-                $statement = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, profilepicture) VALUES (:firstname, :lastname, :email, :password, '');");
+                $statement = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, profilepicture) VALUES (:firstname, :lastname, :email, :password, :profilepicture);");
                 $statement->bindValue(':firstname', $this->firstname);
                 $statement->bindValue(':lastname', $this->lastname);
                 $statement->bindValue(':email', $this->email);
                 $statement->bindValue(':password', $password);
+                $statement->bindValue(':profilepicture', $this->profilepicture);
                 return $statement->execute();
         }
 

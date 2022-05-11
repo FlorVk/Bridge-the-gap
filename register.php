@@ -10,6 +10,7 @@
                 $user->setLastname($_POST['lastname']);
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
+                $user->setProfilePicture("standard.png");
                 
                 $user->register();
 

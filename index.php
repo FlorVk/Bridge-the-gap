@@ -32,13 +32,16 @@ if (isset($_GET['search'])) {
             <div class="post">
 
                     <a href="userdata.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
-                        <img class="profilePicture_small" src="<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
+                        <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
                         <p class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname'] ?></p>
                     </a>
                     <div class="post_content">
-                    <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
-                        <p><?php echo $p['title']; ?></p>
-                        <p><?php echo $p['description']; ?></p>
+                        <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
+                            <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                            <p><?php echo $p['title']; ?></p>
+                            <p><?php echo $p['description']; ?></p>
+                        </a>
+                        
                     </div>
             </div>
         <?php endforeach; ?>

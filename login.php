@@ -44,8 +44,8 @@
         } ?>
 
         <button type="submit">Log in</button>
-        <a href="login.php" id="noAccountLink">Heb je al nog geen account? <span>Registreer je hier</span></a><br>
-        <a href="login.php" id="noAccountLink">Wachtwoord vergeten? <span>Klik hier</span></a><br>
+        <a href="register.php" id="noAccountLink">Heb je al nog geen account? <span>Registreer je hier</span></a><br>
+        <a href="#" id="noAccountLink">Wachtwoord vergeten? <span>Klik hier</span></a><br>
     </form>
 </body>
 </html>
