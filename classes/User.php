@@ -10,6 +10,7 @@
         private $profilepicture;
         private $senior;
         private $userId;
+        private $bio;
     
 
         public function getFirstname()
@@ -87,6 +88,15 @@
             return $this->senior;
         }
 
+        public function setBio($bio) {
+            $this->bio = $bio;
+            return $this;
+        }
+        
+        public function getBio() {
+            return $this->bio;
+        }
+
         public function setProfilePicture($profilepicture)
         {
             if (!empty($profilepicture)) {
@@ -109,7 +119,7 @@
 
                 $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
                 $conn = Db::getInstance();
-                $statement = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, profilepicture) VALUES (:firstname, :lastname, :email, :password, :profilepicture);");
+                $statement = $conn->prepare("INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `profilepicture`) VALUES (:firstname, :lastname, :email, :password, :profilepicture);");
                 $statement->bindValue(':firstname', $this->firstname);
                 $statement->bindValue(':lastname', $this->lastname);
                 $statement->bindValue(':email', $this->email);
@@ -121,7 +131,7 @@
         public function canLogin($email, $password)
         {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare("SELECT * FROM users WHERE email = :email;");
+                $statement = $conn->prepare("SELECT * FROM `users` WHERE `email` = :email;");
                 $statement->bindValue(':email', $email);
                 $statement->execute();
                 $result = $statement->fetch();
@@ -166,6 +176,31 @@
             session_start();
             $_SESSION['id'] = $sessionId;
             header('location: index.php');
+        }
+
+        public function updateProfilePicture($profilepicture, $userId)
+        {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare("UPDATE `users` SET `profilepicture` = :profilepicture WHERE `id` = :id");
+
+                $statement->bindValue(':id', $userId);
+                $statement->bindValue(':profilepicture', $profilepicture);
+
+                $statement->execute();
+
+                header('location: usersettings.php');
+        }
+
+        public function updateUser()
+        {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare("UPDATE `users` SET `firstname` = :firstname, `lastname` = :lastname, `bio` = :bio WHERE `id` = :id;");
+                $statement->bindvalue(':firstname', $this->firstname);
+                $statement->bindvalue(':lastname', $this->lastname);
+                $statement->bindvalue(':bio', $this->bio);
+                $statement->bindvalue(':id', $this->userId);
+                return $statement->execute();
+
         }
     }
 

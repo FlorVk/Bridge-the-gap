@@ -72,18 +72,18 @@
         public function uploadPost()
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO posts (title, description, user_id, time_posted) VALUES (:title, :description, :user_id, :time_posted)");
-            $statement->bindValue(":title", $this->title);
-            $statement->bindValue(":description", $this->description);
-            $statement->bindValue(":user_id", $this->userId);
-            $statement->bindValue(":time_posted", $this->timePosted);
+            $statement = $conn->prepare("INSERT INTO `posts` (`title`, `description`, `user_id`, `time_posted`) VALUES (:title, :description, :user_id, :time_posted)");
+            $statement->bindValue(':title', $this->title);
+            $statement->bindValue(':description', $this->description);
+            $statement->bindValue(':user_id', $this->userId);
+            $statement->bindValue(':time_posted', $this->timePosted);
             $statement->execute();
         }
 
         public static function getUserByPostId($postId)
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT * FROM users INNER JOIN posts ON users.id = posts.user_id WHERE posts.id = :postId");
+            $statement = $conn->prepare("SELECT * FROM `users` INNER JOIN `posts` ON users.id = posts.user_id WHERE posts.id = :postId");
             $statement->bindValue(':postId', $postId);
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -146,7 +146,7 @@
         public static function getPost($postId)
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT * FROM posts WHERE id = :id");
+            $statement = $conn->prepare("SELECT * FROM `posts` WHERE `id` = :id");
             $statement->bindValue(':id', $postId);
             $statement->execute();
             $result = $statement->fetch();
@@ -156,12 +156,13 @@
         public static function getPostsByUserId($userId)
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT * FROM posts WHERE userid = :userId");
-            $statement->bindValue(':userId', $userId);
+            $statement = $conn->prepare("SELECT * FROM `posts` WHERE `user_id` = :user_Id");
+            $statement->bindValue(':user_Id', $userId);
             $statement->execute();
             $result = $statement->fetchAll();
             return $result;
         }
+
 
     }
 

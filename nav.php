@@ -24,8 +24,6 @@
                 <p>".$user['firstname'] . ' ' .$user['lastname'] ."</p>
             </div>";
 
-        //temp in nav ->
-        echo "<a class='nav_btn' href='logout.php'>Log out</a>";
     } else {
         echo "<div class='nav_right'><a class='nav_btn' href='login.php'>Log in</a> ";
         echo "<a class='nav_btn' href='register.php'>Registreren</a></div>";
