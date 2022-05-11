@@ -4,8 +4,13 @@ include_once("bootstrap.php");
 
 session_start();
 
-$id = $_SESSION['id'];
-$userData = user::getUserFromId($id);
+if (isset($_GET['search'])) {
+    $post = new Post;
+    $allPosts = $post->getAllPostsLimitFiltered($_GET['search']);
+} else {
+    $post = new Post;
+    $allPosts = $post->getAllPostsLimit();
+}
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -20,5 +25,31 @@ $userData = user::getUserFromId($id);
     <header>
         <?php include('nav.php'); ?>
     </header>
+
+    <div class="posts">
+        <?php foreach ($allPosts as $p) : ?>
+
+            <div class="post">
+
+                    <a href="userdata.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
+                        <img class="profilePicture_small" src="<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
+                        <p class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname'] ?></p>
+                    </a>
+                    <div class="post_content">
+                    <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                        <p><?php echo $p['title']; ?></p>
+                        <p><?php echo $p['description']; ?></p>
+                    </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if (!isset($_GET['search'])) : ?>
+        <div class="pages">
+            <?php for ($pages = 1; $pages <= $total_pages; $pages++) : ?>
+                <a href='<?php echo "?page=$pages"; ?>' class="links"><?php echo $pages; ?></a>
+            <?php endfor; ?>
+        </div>
+    <?php endif; ?>
 </body>
 </html>

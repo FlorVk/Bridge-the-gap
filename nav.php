@@ -7,6 +7,11 @@
             <li><a href="">Berichten</a></li>
             <li><a href="">Instellingen</a></li>
         </ul>
+
+        <form action="index.php" method="get">
+        <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="Search">
+    </form>
     </div>
     <?php
     if (isset($_SESSION['id'])) {

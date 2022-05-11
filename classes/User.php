@@ -1,7 +1,7 @@
 <?php 
     include_once(__DIR__ . "/Db.php");
 
-    class USer
+    class User
     {
         private $firstname;
         private $lastname;
