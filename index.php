@@ -31,7 +31,7 @@ if (isset($_GET['search'])) {
 
             <div class="post">
 
-                    <a href="userdata.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
+                    <a href="user.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
                         <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
                         <p class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname'] ?></p>
                     </a>

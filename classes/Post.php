@@ -142,6 +142,27 @@
             $result = $statement->fetchAll();
             return $result;
         }
+
+        public static function getPost($postId)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM posts WHERE id = :id");
+            $statement->bindValue(':id', $postId);
+            $statement->execute();
+            $result = $statement->fetch();
+            return $result;
+        }
+
+        public static function getPostsByUserId($userId)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM posts WHERE userid = :userId");
+            $statement->bindValue(':userId', $userId);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
     }
 
 ?>
