@@ -5,7 +5,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="">Bellen</a></li>
             <li><a href="">Berichten</a></li>
-            <li><a href="">Instellingen</a></li>
+            <li><a href="usersettings.php">Instellingen</a></li>
         </ul>
 
         <form action="index.php" method="get">
