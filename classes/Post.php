@@ -8,6 +8,8 @@
         private $description;
         private $userID;
         private $timePosted;
+        private $category;
+        private $imgPath;
     
 
         public function getTitle()
@@ -67,15 +69,35 @@
             return $this;
         }
 
+        public function setCategory($category) {
+            $this->category = $category;
+            return $this;
+        }
+        
+        public function getCategory() {
+            return $this->category;
+        }
+
+        public function setImage($imgPath) {
+            $this->imgPath = $imgPath;
+            return $this;
+        }
+        
+        public function getImage() {
+            return $this->imgPath;
+        }
+
 
 
         public function uploadPost()
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO `posts` (`title`, `description`, `user_id`, `time_posted`) VALUES (:title, :description, :user_id, :time_posted)");
+            $statement = $conn->prepare("INSERT INTO `posts` (`title`, `description`, `user_id`, `time_posted`, `img_path`, `category`) VALUES (:title, :description, :user_id, :time_posted, :imgPath, :category)");
             $statement->bindValue(':title', $this->title);
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':user_id', $this->userId);
+            $statement->bindValue(':imgPath', $this->imgPath);
+            $statement->bindValue(':category', $this->category);
             $statement->bindValue(':time_posted', $this->timePosted);
             $statement->execute();
         }

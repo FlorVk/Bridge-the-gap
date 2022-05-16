@@ -10,17 +10,49 @@
 
     if(!empty($_POST)){
         try {
-            //$id = $_SESSION['id'];
-            //$userData = user::getUserFromId($id);
-
             $post = new Post();
             $post->setTitle($_POST['title']);
             $post->setDescription($_POST['description']);
             $post->setUserId($userData['id']);
             $post->setTimePosted(date("Y-m-d H:i:s"));
 
-           
-            $post->uploadPost();
+            if (isset($_FILES['postImage'])) {
+                $imageName = $_FILES['postImage']['name'];
+                $fileType  = $_FILES['postImage']['type'];
+                $fileSize  = $_FILES['postImage']['size'];
+                $fileTmpName = $_FILES['postImage']['tmp_name'];
+                $fileError = $_FILES['postImage']['error'];
+
+                $fileData = explode('/', $fileType);
+                $fileExtension = $fileData[count($fileData)-1];
+
+                if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
+                    //check if file is correct type
+                    //check file size
+                    try {
+                        if ($fileSize < 5000000) {
+                            $fileNewName = "images/postpictures/".basename($imageName);
+                            $uploaded = move_uploaded_file($fileTmpName, $fileNewName);
+
+                            try {
+                                if ($uploaded) {
+                                    $postPicture = basename($imageName);
+                                    $post->setImage($postPicture);
+
+                                    $post->uploadPost();
+                                }
+                            } catch (Exception $e) {
+                                echo 'Er is iets misgelopen' . $e->getMessage();
+                            }
+                        }
+                    } catch (Exception $e) {
+                        echo 'Bestand te groot' . $e->getMessage();
+                    }
+                } else {
+                    echo 'no';
+                    $post->uploadPost();
+                }
+            }
 
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -42,9 +74,17 @@
         <?php include('nav.php'); ?>
     </header>
 
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
+        
+
         <div class="uploadForm">
             <h1>Maak je post</h1>
+
+            <div>
+                <label>Post picture</label>
+                <input type="file" id="postImage" name="postImage">
+            </div>
+            
             <div class="inputPost">
                 <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField">
                 <input type="text" placeholder="Stel hier je vraag" name="description" value="" class="inputField">
