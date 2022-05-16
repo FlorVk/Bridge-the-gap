@@ -88,6 +88,18 @@
             return $this->senior;
         }
 
+        public static function checkSenior(){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT senior FROM users");
+            $statement->execute();
+            $result = $statement->fetch();
+            if ($result = 1) {
+                    echo "Junior";
+            } else {
+                    echo "Senior";
+            }
+        }
+
         public function setBio($bio) {
             $this->bio = $bio;
             return $this;
@@ -119,12 +131,13 @@
 
                 $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
                 $conn = Db::getInstance();
-                $statement = $conn->prepare("INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `profilepicture`) VALUES (:firstname, :lastname, :email, :password, :profilepicture);");
+                $statement = $conn->prepare("INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `profilepicture`, `senior`) VALUES (:firstname, :lastname, :email, :password, :profilepicture, :senior);");
                 $statement->bindValue(':firstname', $this->firstname);
                 $statement->bindValue(':lastname', $this->lastname);
                 $statement->bindValue(':email', $this->email);
                 $statement->bindValue(':password', $password);
                 $statement->bindValue(':profilepicture', $this->profilepicture);
+                $statement->bindValue(':senior', $this->senior);
                 return $statement->execute();
         }
 
@@ -194,11 +207,12 @@
         public function updateUser()
         {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare("UPDATE `users` SET `firstname` = :firstname, `lastname` = :lastname, `bio` = :bio WHERE `id` = :id;");
+                $statement = $conn->prepare("UPDATE `users` SET `firstname` = :firstname, `lastname` = :lastname, `bio` = :bio, `senior` = :senior WHERE `id` = :id;");
                 $statement->bindvalue(':firstname', $this->firstname);
                 $statement->bindvalue(':lastname', $this->lastname);
                 $statement->bindvalue(':bio', $this->bio);
                 $statement->bindvalue(':id', $this->userId);
+                $statement->bindvalue(':senior', $this->senior);
                 return $statement->execute();
 
         }

@@ -100,6 +100,8 @@
             $statement->bindValue(':category', $this->category);
             $statement->bindValue(':time_posted', $this->timePosted);
             $statement->execute();
+
+            header('location: index.php');
         }
 
         public static function getUserByPostId($postId)

@@ -39,7 +39,6 @@
                                     $postPicture = basename($imageName);
                                     $post->setImage($postPicture);
 
-                                    $post->uploadPost();
                                 }
                             } catch (Exception $e) {
                                 echo 'Er is iets misgelopen' . $e->getMessage();
@@ -48,11 +47,14 @@
                     } catch (Exception $e) {
                         echo 'Bestand te groot' . $e->getMessage();
                     }
-                } else {
-                    echo 'no';
-                    $post->uploadPost();
                 }
             }
+
+            if(isset($_POST['category'])) {
+                $post->setCategory($_POST['category']); 
+            }
+            
+            $post->uploadPost();
 
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -88,9 +90,28 @@
             <div class="inputPost">
                 <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField">
                 <input type="text" placeholder="Stel hier je vraag" name="description" value="" class="inputField">
-
-                <input type="submit" class="postButton" value="Upload project">
             </div>
+
+            <div>
+                <label>Wil je je post een categorie geven? </label>
+                    <div>
+                        <input type="radio" name="category" value="Algemeen">
+                        <label for="">Algemeen</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="category" value="Technologie">
+                        <label for="">Technologie</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="category" value="Huishouden">
+                        <label for="">Huishouden</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="category" value="Koken">
+                        <label for="">Koken</label>
+                    </div>
+            </div>
+            <input type="submit" class="postButton" value="Upload project">
         </div>
 
     </form>

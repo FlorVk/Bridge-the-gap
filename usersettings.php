@@ -52,8 +52,11 @@
             $user->setEmail($_POST['updateEmail']);
             $user->setBio($_POST['updateBio']);
             $user->setUserId($userData['id']);
-    
-    
+
+            if(isset($_POST['updateSenior'])) {
+                $user->setSenior($_POST['updateSenior']); 
+            }
+
             $user->updateUser();
 
             header('location: usersettings.php');
@@ -115,11 +118,25 @@
                 </td>
             </tr>
             <tr>
-                <td rowspan="2">
+                <td >
                     <label>Bio</label><br>
-                    <input class="updateProfileInput" type="text" style="height: 130px;" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
+                    <input class="updateProfileInput" type="text" style="height: 50px;" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
                 </td>
             </tr>
+
+            <tr>
+                <td colspan="2">
+                <div>
+                <input type="radio" name="updateSenior" value="Senior">
+                <label for="">Ik registreer me als 65-plusser</label>
+            </div>
+            <div>
+                <input type="radio" name="updateSenior" value="Junior">
+                <label for="">Ik ben geen 65-plusser</label>
+            </div>
+                </td>
+            </tr>
+            
             <tr>
                 <td colspan="2">
                     <input class="updateProfileButton"type="submit" name="update" value="Update gegevens">

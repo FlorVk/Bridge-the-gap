@@ -33,12 +33,15 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
 
     <div class="postContainer">
         <div class="posterContainer">
-            <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $posterUserData['profilepicture'] ?>" alt="">
-            <h1 class="poster_username"><?php echo $fullnamePoster ?></p>
+            <a href="user.php?id=<?php echo $postData['user_id'] ?>">
+                <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $posterUserData['profilepicture'] ?>" alt="">
+                <h1 class="poster_username"><?php echo $fullnamePoster ?></p>  
+            </a>
+            
         </div>
 
         <div class="postImgContainer">
-            <img class="postImg" src="<?php echo $postPicture ?>" alt="">
+            <img class="postpicture_medium" src="./images/postpictures/<?php echo $postData['img_path'] ?>" alt="">
             <p><?php echo "Geupdate ".$postData['time_posted']; ?></p>
             <p><?php echo $postData['title']; ?></p>
             <p><?php echo $postData['description']; ?></p>

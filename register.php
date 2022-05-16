@@ -11,6 +11,10 @@
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
                 $user->setProfilePicture("standard.png");
+
+                if(isset($_POST['senior'])) {
+                    $user->setSenior($_POST['senior']); 
+                }
                 
                 $user->register();
 
@@ -55,14 +59,22 @@
       <label>Herhaal wachtwoord</label>
       <input type="password" name="comfirmPassword" class="inputfield"><br>
 
-      <input type="checkbox"></input>
-      <span>Ik ben geen robot</span>
+      <div>
+            <div>
+                <input type="radio" name="senior" value="Senior">
+                <label for="">Ik registreer me als 65-plusser</label>
+            </div>
+            <div>
+                <input type="radio" name="senior" value="Junior">
+                <label for="">Ik ben geen 65-plusser</label>
+            </div>
+    </div>
 
       <?php if (isset($error)) {
         echo "<div id='error'>" . $error . "</div>";
       } ?>
 
-      <button type="submit">Account aanmaken</button>
+      <button type="submit">Account aanmaken</button><br>
       <a href="login.php" id="noAccountLink">Heb je al een account? <span>Log je dan hier in</span></a><br>
     </form>
 
