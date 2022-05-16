@@ -7,7 +7,6 @@ session_start();
 $sessionId = $_SESSION['id'];
 
 $userData = User::getUserFromId($sessionId);
-$senior = User::checkSenior();
 
 $firstName = $userData['firstname'];
 $lastName = $userData['lastname'];
@@ -41,7 +40,7 @@ $allPosts = Post::getPostsByUserId($id);
 
         <div class="user__information">
             <p class="user__bio"><?php echo $userData['bio']; ?></p>
-            <a class="user_senior"><?php echo $senior; ?></a>
+            <a class="user_senior"><?php echo $userData['senior']; ?></a>
         </div>
 
         <?php if($sessionId == $id) : ?>

@@ -188,6 +188,32 @@
         }
 
 
+        public function updatePost()
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE`posts` SET `title` = :title, `description` = :description, `category` = :category WHERE `posts`.`id` = :id;");
+            $statement->bindValue(':title', $this->title);
+            $statement->bindValue(':description', $this->description);
+            $statement->bindValue(':id', $this->postId);
+            $statement->bindValue(':category', $this->category);
+            $statement->execute();
+
+        }
+
+        public function updatePostPicture($postPicture, $postId)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE `posts` SET `img_path` = :imgPath WHERE `posts`.`id` = :id;");
+            $statement->bindValue(":id", $postId);
+            $statement->bindValue(":imgPath", $postPicture);
+
+            $statement->execute();
+
+            //header('location: updateproject.php');
+        }
+
+
+
     }
 
 ?>

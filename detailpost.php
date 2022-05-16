@@ -8,6 +8,12 @@ $postId = $_GET['id'];
 
 $postData = Post::getPost($postId);
 
+$sessionId = $_SESSION['id'];
+
+$userData = User::getUserFromId($sessionId);
+
+$id = $postData['user_id'];
+
 
 
 $posterUserData = Post::getUserByPostId($postId);
@@ -48,5 +54,12 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
         </div>
 
 
+        <?php if($sessionId == $id) : ?>
+            <div class="user__self">
+                <a class="user__btn" href="usersettings.php"> Settings</a>
+                <a class="user__btn" href="updatepost.php?id=<?php echo $postData['id']?>">Update post</a>
+            </div> 
+        <?php endif; ?>
+    </div>
 </body>
 </html>
