@@ -75,6 +75,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update gegevens</title>
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css"> 
 </head>
 
@@ -88,66 +89,82 @@
         echo $error;
     } ?>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <div class="main">
 
-        <div>
-            <label>Profile picture</label>
-            <img class="profilepicture_medium" src="images/profilepictures/<?php echo $userData['profilepicture']; ?>" alt="Profile picture">
-            <input type="file" id="userImage" name="userImage" value=""><br>
-
+        <div class="block1">
+            <div class="block1_left">
+                <?php include('nav_left.php'); ?>
+            </div>
         </div>
-        <input type="submit" name="updateImage" value="Update profile picture">
-    </form>
 
-    <form action="" method="post" class="profile_info">
-    <table class="profileTable">
-        <tbody>
-            <tr>
-                <td> 
-                    <label>First Name</label><br>
-                    <input class="updateProfileInput" type="text" name="updateFirstName" value="<?php echo htmlspecialchars($userData['firstname']); ?>">
-                </td>
-                    <td><label>Last Name</label><br>
-                    <input class="updateProfileInput" type="text" name="updateLastName" value="<?php echo htmlspecialchars($userData['lastname']); ?>">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Email address</label><br>
-                    <input class="updateProfileInput" type="email" name="updateEmail" value="<?php echo htmlspecialchars($userData['email']); ?>" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <label>Bio</label><br>
-                    <input class="updateProfileInput" type="text" style="height: 50px;" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
-                </td>
-            </tr>
+        <div class="block2">
+            <div class="usersettings_box">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label>Profile picture</label>
+                        <img class="profilepicture_large" src="images/profilepictures/<?php echo $userData['profilepicture']; ?>" alt="Profile picture">
+                        <input type="file" id="userImage" name="userImage" value=""><br>
+                    </div>
+                    <input type="submit" name="updateImage" value="Update profile picture">
+                </form>
 
-            <tr>
-                <td colspan="2">
-                <div>
-                <input type="radio" name="updateSenior" value="Senior">
-                <label for="">Ik registreer me als 65-plusser</label>
+                <form action="" method="post" class="profile_info">
+                    <table class="profileTable">
+                        <tbody>
+                            <tr>
+                                <td> 
+                                    <label>First Name</label><br>
+                                    <input class="updateProfileInput" type="text" name="updateFirstName" value="<?php echo htmlspecialchars($userData['firstname']); ?>">
+                                </td>
+                                    <td><label>Last Name</label><br>
+                                    <input class="updateProfileInput" type="text" name="updateLastName" value="<?php echo htmlspecialchars($userData['lastname']); ?>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Email address</label><br>
+                                    <input class="updateProfileInput" type="email" name="updateEmail" value="<?php echo htmlspecialchars($userData['email']); ?>" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <label>Bio</label><br>
+                                    <input class="updateProfileInput" type="text" style="height: 50px;" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                <div>
+                                <input type="radio" name="updateSenior" value="Senior">
+                                <label for="">Ik registreer me als 65-plusser</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="updateSenior" value="Junior">
+                                <label for="">Ik ben geen 65-plusser</label>
+                            </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="2">
+                                    <input class="updateProfileButton"type="submit" name="update" value="Update gegevens">
+                                </td>
+                            </tr>   
+                        </tbody>
+                    </table>
+                </form> 
             </div>
-            <div>
-                <input type="radio" name="updateSenior" value="Junior">
-                <label for="">Ik ben geen 65-plusser</label>
-            </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                    <input class="updateProfileButton"type="submit" name="update" value="Update gegevens">
-                </td>
-            </tr>
+        </div>
 
-                
-        </tbody>
-    </table>
-       
-</form>
+        <div class="block3">
+            <div class="block3_right">
+            </div>
+        </div>
+        
+    </div>
+
+    
 
 
 </body>

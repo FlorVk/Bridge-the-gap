@@ -1,22 +1,192 @@
+/* ------------- NAV ------------- */
+
+
+.nav_left {
+    display:flex;
+    flex-flow: column nowrap;
+    
+}
+
+.nav_top {
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
+    justify-content: start;
+    padding: 1em 15em;
+}
+
+.nav_search{
+    padding: 0 3em;
+}
+
+.user_details {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+}
+
+.post_userinfo {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.post_username{
+    padding: 0 1em;
+}
+
+.user_name{
+    padding: 0 1em;
+}
+
+.menu_item {
+    text-decoration: none;
+    color: blue;
+    font-size: 1.5em;
+    font-weight: bold;
+    
+}
+
+.menu_items li {
+    list-style-type: none;
+    padding: 1em 0;
+}
+
+.menu_items {
+    border-bottom: 1px solid black;
+    padding-bottom: 5em;
+}
+
+.posterContainer {
+    display: flex;
+    align-items: center;
+}
+
+/* ------------- IMAGE SIZES ------------- */
+
 .profilepicture_small {
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    margin-bottom: 20px;
     object-fit: cover;
 }
 
 .profilepicture_medium {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.profilepicture_large {
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    margin-bottom: 20px;
     object-fit: cover;
 }
 
 .postpicture_medium {
     width: 300px;
     height: 200px;
-    margin-bottom: 20px;
     object-fit: cover;
+}
+
+.postpicture_large {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* ------------- POSTS ------------- */
+
+.main {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    padding-top: 1em;
+}
+
+.post {
+    margin-bottom: 1em;
+    padding: 1em 1em;
+    border: 1px solid black;
+}
+
+
+.post_detail {
+    text-decoration: none;
+    color: black;
+
+}
+
+.post_title {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em 0;
+}
+
+.post_description {
+    font-size: 1em;
+    margin: 0;
+}
+
+.post_content_image{
+    padding: 0.5em 0;
+}
+
+/* ------------- BLOCKS ------------- */
+
+.block1 {
+    width: 30%;
+}
+
+.block1_left {
+    padding-left: 45%;
+}
+
+.block2{
+    width: 40%;
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.block2_index{
+    width: 40%;
+    margin: 1em;
+}
+
+.block3 {
+    width: 30%;
+}
+
+.block3_right {
+    padding-right: 45%;
+}
+
+
+/* ------------- DETAIL ------------- */
+
+.detail_box{
+    display: flex;
+    flex-direction: column;
+}
+
+.detail_container{
+    border: 1px solid black;
+    padding: 2em 5em;
+}
+
+/* ------------- CATEGORY ------------- */
+
+.category_items {
+    border: 1px solid black;
+    padding-bottom: 5em;
+}
+
+.category_items li {
+    list-style-type: none;
+    padding: 1.2em 1em;
+    border-bottom: 1px solid black;
 }

@@ -30,46 +30,60 @@ $allPosts = Post::getPostsByUserId($id);
         <?php include('nav.php'); ?>
     </header>
 
-    <div class="user_profile">
-
-    <div class="user_content">
-        <div class="user_head">
-            <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
-            <h1 class="poster_username"><?php echo $fullname ?></p>
+    <div class="main">
+        <div class="block1">
+            <div class="block1_left">
+                <?php include('nav_left.php'); ?>
+            </div>
         </div>
 
-        <div class="user__information">
-            <p class="user__bio"><?php echo $userData['bio']; ?></p>
-            <a class="user_senior"><?php echo $userData['senior']; ?></a>
-        </div>
+        <div class="user_profile block2">
 
-        <?php if($sessionId == $id) : ?>
-            <div class="user__self">
-                <a class="user__btn" href="usersettings.php"> Settings</a>
-                <a class="user__btn" href="logout.php">Logout</a>
-            </div> 
-        <?php endif; ?>
-    </div>
-
-        
-
-        <div class="posts">
-            <?php foreach ($allPosts as $p) : ?>
-
-                <div class="post">
-                        <div class="post_content">
-                            <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
-                                <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
-                                <p><?php echo $p['title']; ?></p>
-                                <p><?php echo $p['description']; ?></p>
-                            </a>
-                            
-                        </div>
+            <div class="user_content ">
+                <div class="user_head">
+                    <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
+                    <h1 class="poster_username"><?php echo $fullname ?></p>
                 </div>
-            <?php endforeach; ?>
 
+                <div class="user__information">
+                    <p class="user__bio"><?php echo $userData['bio']; ?></p>
+                    <a class="user_senior"><?php echo $userData['senior']; ?></a>
+                </div>
+
+                <?php if($sessionId == $id) : ?>
+                    <div class="user__self">
+                        <a class="user__btn" href="usersettings.php"> Settings</a>
+                        <a class="user__btn" href="logout.php">Logout</a>
+                    </div> 
+                <?php endif; ?>
+            </div>
+
+            <div class="posts">
+                <?php foreach ($allPosts as $p) : ?>
+
+                    <div class="post">
+                            <div class="post_content">
+                                <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
+                                    <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                    <p><?php echo $p['title']; ?></p>
+                                    <p><?php echo $p['description']; ?></p>
+                                </a>
+                                
+                            </div>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
         </div>
+
+        <div class="block3">
+            <div class="block3_right">
+            </div>
+        </div>
+
     </div>
+
+    
 
     
 
