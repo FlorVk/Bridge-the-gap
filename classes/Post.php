@@ -237,6 +237,14 @@
             //header('location: updateproject.php');
         }
 
+        public static function deletePostByPostId($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("DELETE FROM posts WHERE id = :post_id");
+            $statement->bindValue(':post_id', $id);
+            $statement->execute();
+        }
+
 
 
     }

@@ -149,6 +149,10 @@ require_once("bootstrap.php");
                     <input type="submit" class="button" name="updatePostImage" value="Update post afbeelding">
                     
                 </form>
+
+                <div class="user_self">
+                    <a class="button" href="deletepost.php?id=<?php echo $postData['id'] ?>"> Delete</a>
+                </div>
             </div>
         </div>
     </div>
