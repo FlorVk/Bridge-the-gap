@@ -51,36 +51,48 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
             <div class="detail_box">
                 <div class="detail_container">
                    <div class="posterContainer">
-                        <a href="user.php?id=<?php echo $postData['user_id'] ?>" class="post_userinfo">
-                            <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $posterUserData['profilepicture'] ?>" alt="">
-                            <h1 class="post_username"><?php echo $fullnamePoster ?></p> 
-                             
-                        </a>
-                        <p><?php echo "Geupdate ".$postData['time_posted']; ?></p>
+                       <div class="poster_head">
+                            <a href="user.php?id=<?php echo $postData['user_id'] ?>" class="post_userinfo">
+                                <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $posterUserData['profilepicture'] ?>" alt="">
+                                <h1 class="post_username"><?php echo $fullnamePoster ?>
+                            </a>
+                                    <p><?php echo "Geupdate ".$postData['time_posted']; ?></p>
+                                </h1>
+                       </div>
+
+                       <div>
+                            <?php if($sessionId == $id) : ?>
+                                <div class="user_self">
+                                    <a class="btn_hollow" href="updatepost.php?id=<?php echo $postData['id']?>">Update post</a>
+                                </div> 
+                            <?php endif; ?>
+                       </div>
+                        
+
+                        
                     </div> 
 
                     <div class="postImgContainer">
                         <p class="post_title"><?php echo $postData['title']; ?></p>
                         <p class="post_description"><?php echo $postData['description']; ?></p>
-                        <div class="post_content_image">
-                            <img class="postpicture_large" src="./images/postpictures/<?php echo $postData['img_path'] ?>" alt="">
-                        </div>
+
+                        <?php if(isset($postData['img_path'])) : ?>
+                            <div class="post_content_image">
+                                <img class="postpicture_large" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
+                            </div> 
+                        <?php endif; ?>
+                            
                         
                     </div>
                 </div>
 
-                <?php if($sessionId == $id) : ?>
-                    <div class="user__self">
-                        <a class="user__btn" href="usersettings.php"> Settings</a>
-                        <a class="user__btn" href="updatepost.php?id=<?php echo $postData['id']?>">Update post</a>
-                    </div> 
-                <?php endif; ?>
             </div>
             </div>
             
 
         <div class="block3">
             <div class="block3_right">
+                
             </div>
         </div>
     </div>

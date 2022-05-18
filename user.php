@@ -22,6 +22,7 @@ $allPosts = Post::getPostsByUserId($id);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link rel="stylesheet" href="styles/reset.css">  
     <link rel="stylesheet" href="styles/style.css">  
 </head>
 <body>
@@ -37,43 +38,53 @@ $allPosts = Post::getPostsByUserId($id);
             </div>
         </div>
 
-        <div class="user_profile block2">
-
-            <div class="user_content ">
-                <div class="user_head">
-                    <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
-                    <h1 class="poster_username"><?php echo $fullname ?></p>
-                </div>
-
-                <div class="user__information">
-                    <p class="user__bio"><?php echo $userData['bio']; ?></p>
-                    <a class="user_senior"><?php echo $userData['senior']; ?></a>
-                </div>
-
-                <?php if($sessionId == $id) : ?>
-                    <div class="user__self">
-                        <a class="user__btn" href="usersettings.php"> Settings</a>
-                        <a class="user__btn" href="logout.php">Logout</a>
-                    </div> 
-                <?php endif; ?>
-            </div>
-
-            <div class="posts">
-                <?php foreach ($allPosts as $p) : ?>
-
-                    <div class="post">
-                            <div class="post_content">
-                                <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
-                                    <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
-                                    <p><?php echo $p['title']; ?></p>
-                                    <p><?php echo $p['description']; ?></p>
-                                </a>
-                                
-                            </div>
+        <div class="user_profile block2_index">
+            <div class="user_profile">
+                <div class="user_content ">
+                    <div class="user_head posterContainer">
+                        <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
+                        <h1 class="poster_username post_username"><?php echo $fullname ?>
+                        <p class="user_senior"><?php echo $userData['senior']; ?></p> </h1>
                     </div>
-                <?php endforeach; ?>
 
+                    <div class="user__information">
+                        <p class="user__bio"><?php echo $userData['bio']; ?></p>
+                    </div>
+
+                    <?php if($sessionId == $id) : ?>
+                        <div class="user__self">
+                            <a class="user__btn" href="usersettings.php"> Settings</a>
+                            <a class="user__btn" href="logout.php">Logout</a>
+                        </div> 
+                    <?php endif; ?>
+                </div>
+                
+                <div class="posts">
+                    <?php foreach ($allPosts as $p) : ?>
+                        <div class="post">
+                                <div class="post_content">
+                                    <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
+
+                                        <div class="post_content_box">
+                                            <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                            <p class="post_title"><?php echo $p['title']; ?></p>
+                                            <p class="post_description"><?php echo $p['description']; ?></p>
+                                        </div>
+
+                                        <?php if(isset($p['img_path'])) : ?>
+                                            <div class="post_content_image">
+                                                <img class="postpicture_medium" src="images/postpictures/<?php echo $p['img_path']; ?>" alt="Post picture">
+                                            </div> 
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
+
+            
+
         </div>
 
         <div class="block3">

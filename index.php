@@ -12,6 +12,10 @@ if (isset($_GET['search'])) {
     $allPosts = $post->getAllPostsLimit();
 }
 
+$sessionId = $_SESSION['id'];
+
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,25 +40,48 @@ if (isset($_GET['search'])) {
         </div>
     
         <div class="posts block2_index">
+            <div class="index_add">
+                <p class="index_post_button">Wat will je vragen?</p>
+                <div class="make_post">
+                    <a class="make_post_border" href="uploadpost.php">Vraag</a>
+                    <a class="make_post_border" href="uploadpost.php">Antwoord</a>
+                    <a href="uploadpost.php">Bericht</a>
+                </div>
+            </div>
             <?php foreach ($allPosts as $p) : ?>
                 <div class="post">
-                        <a href="user.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
-                            <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
-                            <p class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname']?></p>
-                        </a>
+                        <div class="posterContainer">
+                            <div class="poster_head">
+                                <a href="user.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
+                                    <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
+                                    <h1 class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname']?>
+                                </a>
+                                <p><?php echo "Geupdate ".$p['time_posted']; ?></p></h1>
+                            </div>
+                            <div>
+                                <?php if($sessionId == $p['user_id']) : ?>
+                                    <div class="user_self">
+                                        <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update post</a>
+                                    </div> 
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        
 
                         <div class="post_content">
                             <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
 
                             <div class="post_content_box">
-                                <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                
                                 <p class="post_title"><?php echo $p['title']; ?></p>
                                 <p class="post_description"><?php echo $p['description']; ?></p>
                             </div>
 
-                            <div class="post_content_image">
-                                <img class="postpicture_medium" src="./images/postpictures/<?php echo $p['img_path']; ?>" alt="">
-                            </div>
+                            <?php if(isset($p['img_path'])) : ?>
+                                <div class="post_content_image">
+                                    <img class="postpicture_medium" src="images/postpictures/<?php echo $p['img_path']; ?>" alt="Post picture">
+                                </div> 
+                            <?php endif; ?>
                                 
                             </a>
                             

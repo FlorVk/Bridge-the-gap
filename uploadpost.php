@@ -69,6 +69,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bridge the gap</title>
+    <link rel="stylesheet" href="styles/reset.css"> 
     <link rel="stylesheet" href="styles/style.css">  
 </head>
 <body>
@@ -76,44 +77,63 @@
         <?php include('nav.php'); ?>
     </header>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        
-
-        <div class="uploadForm">
-            <h1>Maak je post</h1>
-
-            <div>
-                <label>Post picture</label>
-                <input type="file" id="postImage" name="postImage">
+    <div class="main">
+        <div class="block1">
+            <div class="block1_left">
+                <?php include('nav_left.php'); ?>
             </div>
-            
-            <div class="inputPost">
-                <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField">
-                <input type="text" placeholder="Stel hier je vraag" name="description" value="" class="inputField">
-            </div>
-
-            <div>
-                <label>Wil je je post een categorie geven? </label>
-                    <div>
-                        <input type="radio" name="category" value="Algemeen">
-                        <label for="">Algemeen</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="category" value="Technologie">
-                        <label for="">Technologie</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="category" value="Huishouden">
-                        <label for="">Huishouden</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="category" value="Koken">
-                        <label for="">Koken</label>
-                    </div>
-            </div>
-            <input type="submit" class="postButton" value="Upload project">
         </div>
 
-    </form>
+        <div class="block2">
+            <form action="" method="POST" enctype="multipart/form-data">
+            
+
+            <div class="uploadForm">
+                <h1 class="title">Maak je post</h1>
+                
+                <div class="inputPost">
+                    <h2 class="title_medium" for="">Wat is je vraag?</h2>
+                    <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField inputTitle"><br>
+                    <input type="text" placeholder="Stel hier je vraag" name="description" value="" class="inputField inputDescription">
+                </div>
+
+                <div class="uploadPicture">
+                    <h2 class="title_medium">Kies een optionele foto</h2>
+                    <input type="file" id="postImage" name="postImage">
+                </div>
+
+                <div class="addCategory">
+                    <h2 class="title_medium">Wil je je post een categorie geven? </h2>
+                        <div>
+                            <input type="radio" name="category" value="Algemeen">
+                            <label for="">Algemeen</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="category" value="Technologie">
+                            <label for="">Technologie</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="category" value="Huishouden">
+                            <label for="">Huishouden</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="category" value="Koken">
+                            <label for="">Koken</label>
+                        </div>
+                </div>
+                <input type="submit" class="postButton" value="Upload project">
+            </div>
+
+            </form>
+        </div>
+
+        <div class="block3">
+            <div class="block3_right">
+            </div>
+        </div>
+
+    </div>
+
+    
 </body>
 </html>

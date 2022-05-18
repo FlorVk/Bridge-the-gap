@@ -73,62 +73,86 @@ require_once("bootstrap.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bridge The Gap</title>
+    <link rel="stylesheet" href="styles/reset.css"> 
     <link rel="stylesheet" href="styles/style.css"> 
 </head>
 <body>
-<header>
+    <header>
         <?php include('nav.php'); ?>
     </header>
 
-    <h1>Update je post</h1>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div>
-            <label>Post picture</label>
-            <input type="file" id="postImage" name="postImage">
-        </div>
-        <input type="submit" name="updatePostImage" value="Update post afbeelding">
-        <?php if(isset($postData['img_path'])) : ?>
-            <div class="user__self">
-            <img class="postpicture_medium" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
-        
-            </div> 
-        <?php endif; ?>
-    </form>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        
-
-        <div class="uploadForm">
-
-            <div class="inputPost">
-                <input type="text" placeholder="Titel van je vraag" name="updateTitle" value="<?php echo htmlspecialchars($postData['title']); ?>" class="inputField">
-                <input type="text" placeholder="Stel hier je vraag" name="updateDescription" value="<?php echo htmlspecialchars($postData['description']); ?>" class="inputField">
+    <div class="main">
+        <div class="block1">
+            <div class="block1_left">
+                <?php include('nav_left.php'); ?>
             </div>
+        </div>
 
+        <div class="block2_update">
             <div>
-                <label>Wil je je post een categorie geven? </label>
-                    <div>
-                        <input type="radio" name="updateCategory" value="Algemeen">
-                        <label for="">Algemeen</label>
+            <form action="" method="POST" enctype="multipart/form-data">
+            <h1 class="title">Update je post</h1>
+
+                <div class="uploadForm">
+
+                    <div class="inputPost">
+                        <h2 class="title_medium" for="">Wil je de vraag aanpassen?</h2>
+                        <input type="text" placeholder="Titel van je vraag" name="updateTitle" value="<?php echo htmlspecialchars($postData['title']); ?>" class="inputField inputTitle"><br>
+                        <input type="text" placeholder="Stel hier je vraag" name="updateDescription" value="<?php echo htmlspecialchars($postData['description']); ?>" class="inputField inputDescription">
                     </div>
-                    <div>
-                        <input type="radio" name="updateCategory" value="Technologie">
-                        <label for="">Technologie</label>
+
+                    <div class="addCategory">
+                        <h2 class="title_medium">Wil je de categorie veranderen? </h2>
+                            <div>
+                                <input type="radio" name="updateCategory" value="Algemeen">
+                                <label for="">Algemeen</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="updateCategory" value="Technologie">
+                                <label for="">Technologie</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="updateCategory" value="Huishouden">
+                                <label for="">Huishouden</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="updateCategory" value="Koken">
+                                <label for="">Koken</label>
+                            </div>
                     </div>
-                    <div>
-                        <input type="radio" name="updateCategory" value="Huishouden">
-                        <label for="">Huishouden</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="updateCategory" value="Koken">
-                        <label for="">Koken</label>
-                    </div>
+                    <input type="submit" class="button" name="update" value="Upload project">
+                </div>
+
+            </form>
+
+            
             </div>
-            <input type="submit" class="postButton" name="update" value="Upload project">
+            
         </div>
 
-    </form>
+        <div class="block3_update">
+            <div class="block3_right updateRight">
+            <h1 class="title">Afbeelding veranderen</h1>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="uploadPicture">
+                    <h2 class="title_medium">Wil je de afbeelding veranderen?</h2>
+                    <input type="file" id="postImage" name="postImage">
+                </div>
+                <?php if(isset($postData['img_path'])) : ?>
+                    <div class="user__self">
+                    <img class="postpicture_medium" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
+                
+                    </div> 
+                <?php endif; ?>
+                <input type="submit" class="button" name="updatePostImage" value="Update post afbeelding">
+                
+            </form>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
 </html>
