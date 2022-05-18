@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             
-                            <input class="button"type="submit" name="update" value="Update gegevens">
+                            <input class="button" type="submit" name="update" value="Update gegevens">
                 </form> 
             </div>
         </div>

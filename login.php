@@ -27,25 +27,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <form class="form" action="" method="post">
+    <div class="main_login">
+        <div class="block1">
+            <div class="img_box">
+                <img class="image_login" src="./images/components/login.png" alt="">
+            </div>
+            
+        </div>
 
-        <h1>Login</h1>
+        <div class="block2_login">
+            <form class="form_login" action="" method="post">
 
-        <label>Email adres</label>
-        <input type="email" name="email" class="inputfield"><br>
+                <h1 class="title">Login</h1>
+                <p>Sluit je aan bij duizenden andere gebruikers om je verhalen en vaardigheden te delen  </p>
 
-        <label>Wachtwoord</label>
-        <input type="password" name="password" class="inputfield"><br>
+                <div>
+                    <input class="inputField login_field" type="submit" name="loginGoogle" value="Login met Google">
+                </div>
 
-        <?php if (isset($error)) {
-        echo "<div id='error'>" . $error . "</div>";
-        } ?>
+                <div class="separator">
+                    <div class="line"></div>
+                        <h2 class="break">OF</h2>
+                    <div class="line"></div>
+                </div>
 
-        <button type="submit">Log in</button>
-        <a href="register.php" id="noAccountLink">Heb je al nog geen account? <span>Registreer je hier</span></a><br>
-        <a href="#" id="noAccountLink">Wachtwoord vergeten? <span>Klik hier</span></a><br>
-    </form>
+                <div class="login_input">
+                    <label>Email adres</label><br>
+                    <input class="inputField login_field" type="email" name="email" class="inputfield"><br>
+
+                    <label>Wachtwoord</label><br>
+                    <input class="inputField login_field" type="password" name="password" class="inputfield"><br> 
+                </div>
+                
+
+                <?php if (isset($error)) {
+                    echo "<div id='error'>" . $error . "</div>";
+                } ?>
+
+                <button class="button" type="submit">Log in</button>
+                <div class="link_register">
+                <div>
+                            <p>Heb je nog geen account?</p>
+                            <p class="span_bottom">Wachtwoord vergeten?</p>
+                    </div>
+
+                    <div class="link_box">
+                        <a id="noAccountLink" href="register.php">
+                            <p class="span_login">Registreer je hier</p>
+                        </a>
+
+                        <a href="register.php">
+                           <p class="span_login span_bottom">Klik hier</p> 
+                        </a>
+                        
+                    </div>
+
+                    
+
+                    <a href="#" id="noAccountLink"> <span class="span_login"></span></a><br>  
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>
