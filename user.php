@@ -67,7 +67,17 @@ $allPosts = Post::getPostsByUserId($id);
                                     <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
 
                                         <div class="post_content_box">
-                                            <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                            <div class="posterContainer">
+                                              <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                              <div>
+                                                    <?php if($sessionId == $id) : ?>
+                                                        <div class="user_self">
+                                                            <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update post</a>
+                                                        </div> 
+                                                    <?php endif; ?>
+                                              </div> 
+                                            </div>
+                                            
                                             <p class="post_title"><?php echo $p['title']; ?></p>
                                             <p class="post_description"><?php echo $p['description']; ?></p>
                                         </div>
