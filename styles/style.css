@@ -1,3 +1,19 @@
+:root {
+    --darkBlue: #052093;
+    --buttonOrange: #F47C2C;
+    --appleBlue: #376D87;
+    --lightBlue: #AADEFB;
+    --lightGray: #707070;
+    --grayBlue: #364954;
+    --accentBlue: #9BA6D4;
+    --backgroundGray: #FCFCFC;
+}
+
+body {
+    background-color: var(--backgroundGray);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* ------------- NAV ------------- */
 
 
@@ -9,10 +25,11 @@
 
 .nav_top {
     display: flex;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--grayBlue);
     align-items: center;
     justify-content: start;
     padding: 1em 15em;
+    background-color: white;
 }
 
 .nav_search{
@@ -22,7 +39,7 @@
 .user_details {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--grayBlue);
     padding-bottom: 1em;
 }
 
@@ -41,7 +58,7 @@
 
 .menu_item {
     text-decoration: none;
-    color: blue;
+    color: var(--darkBlue);
     font-size: 1.5em;
     font-weight: bold;
     
@@ -53,7 +70,7 @@
 }
 
 .menu_items {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--grayBlue);
     padding-bottom: 5em;
 }
 
@@ -71,8 +88,8 @@
 /* ------------- IMAGE SIZES ------------- */
 
 .profilepicture_small {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     object-fit: cover;
 }
@@ -118,7 +135,9 @@
 .post {
     margin-bottom: 1em;
     padding: 1em 1em;
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
+    border-radius: 3px;
+    background-color: white;
 }
 
 
@@ -129,7 +148,7 @@
 }
 
 .post_title {
-    font-size: 2em;
+    font-size: 1.6em;
     font-weight: bold;
     padding: 0.5em 0;
 }
@@ -183,6 +202,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 .block2_update{
@@ -235,11 +255,14 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    
 }
 
 .detail_container{
     border: 1px solid black;
     padding: 2em;
+    background-color: white;
+    border-radius: 3px;
 }
 
 
@@ -247,24 +270,33 @@
 /* ------------- CATEGORY ------------- */
 
 .category_items {
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
     padding-bottom: 5em;
+    border-radius: 3px;
+    background-color: white;
 }
 
 .category_items li {
     list-style-type: none;
     padding: 1.2em 1em;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--grayBlue);
 }
 
 .category_btn {
     border: none;
+    background-color: white;
+}
+
+.category_title {
+    color: var(--darkBlue);
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 /* ------------- USER PROFILE ------------- */
 
 .user_content {
-   border-bottom: 1px solid black;
+   border-bottom: 1px solid var(--grayBlue);
    margin-bottom: 2em;
    padding: 2em 0;
 }
@@ -273,12 +305,25 @@
     padding: 1em 0;
 }
 
+.username_title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--appleBlue);
+}
+
+.updated_when {
+    color: var(--lightGray);
+    font-size: 0.9em;
+}
+
 /* ------------- INDEX ------------- */
 
 .index_add{
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
     margin-bottom: 1em;
     padding: 0.5em;
+    border-radius: 3px;
+    background-color: white;
 }
 
 .make_post{
@@ -287,36 +332,41 @@
     text-align: center;
 }
 
+.make_post a {
+    color: var(--accentBlue);
+    font-weight: bold;
+}
+
 .make_post_border {
-    border-right: 1px solid black;
+    border-right: 1px solid var(--grayBlue);
 }
 
 .index_post_button {
     text-align: center;
     padding: 0.5em;
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
     border-radius: 50px;
     margin: 0.5em;
+    color: var(--accentBlue);
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* ------------- MAKE POST ------------- */
 
 .title{
-    color: blue;
+    color: var(--darkBlue);
     font-size: 1.6em;
     font-weight: bold;
     padding-bottom: 0.5em;
 }
 
 .title_medium {
-    color: blue;
+    color: var(--darkBlue);
     font-size: 1.2em;
     font-weight: bold;
     padding-bottom: 0.5em;
 }
-
-
-
 
 
 .uploadPicture{
@@ -339,7 +389,7 @@
 .updateFirstName {
     border-radius: 5px;
     padding: 0.5em;
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
     margin: 0.5em 0;
     width: 90%;
 }
@@ -347,15 +397,14 @@
 .inputField{
     border-radius: 5px;
     padding: 0.5em;
-    border: 1px solid black;
+    border: 1px solid var(--grayBlue);
     margin: 0.5em 0;
     width: 100%;
 }
 
 .inputDescription{
-    height: 100px;
-    resize: vertical;
-    vertical-align: middle;
+    resize: none;
+    padding-bottom: 100px;
 }
 
 /* ------------- LOGIN AND REGISTER ------------- */
@@ -398,7 +447,7 @@
 .separator .line{
     height: 1px;
     flex: 1;
-    background-color: #000;
+    background-color: var(--grayBlue);
 }
 
 .break {

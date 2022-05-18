@@ -14,10 +14,13 @@ if (isset($_GET['search'])) {
 
 if (isset($_GET['category'])) {
     $post = new Post;
-    $allPosts = $post->getAllPostsLimitCategory($_GET['category']);
-    
+    $allPosts = $post->getAllPostsLimitCategory($_GET['category']); 
 }
 
+if (isset($_GET['category']) && $_GET['category'] === 'Alles') {
+    $post = new Post;
+    $allPosts = $post->getAllPostsLimit(); 
+}
 
 $sessionId = $_SESSION['id'];
 
@@ -61,9 +64,10 @@ $sessionId = $_SESSION['id'];
                             <div class="poster_head">
                                 <a href="user.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
                                     <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
-                                    <h1 class="post_username"><?php echo $post->getUserByPostId($p['id'])['firstname']?>
+                                    <div class="post_username"><h1 class="username_title"><?php echo $post->getUserByPostId($p['id'])['firstname']?></h1>
                                 </a>
-                                <p><?php echo "Geupdate ".$p['time_posted']; ?></p></h1>
+                                    <p class="updated_when"><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                </div>
                             </div>
                             <div>
                                 <?php if($sessionId == $p['user_id']) : ?>
@@ -121,6 +125,7 @@ $sessionId = $_SESSION['id'];
                 <form class="category" action="" method="get">
                     <ul class="category_items">
                         <li class="category_title">Categorieën</li>
+                        <li><input class="category_btn" type="submit" name="category" value="Alles"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Algemeen"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Technologie"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Huishouden"></li>
