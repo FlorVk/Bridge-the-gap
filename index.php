@@ -12,6 +12,13 @@ if (isset($_GET['search'])) {
     $allPosts = $post->getAllPostsLimit();
 }
 
+if (isset($_GET['category'])) {
+    $post = new Post;
+    $allPosts = $post->getAllPostsLimitCategory($_GET['category']);
+    
+}
+
+
 $sessionId = $_SESSION['id'];
 
 
@@ -89,25 +96,37 @@ $sessionId = $_SESSION['id'];
                 </div>
             <?php endforeach; ?>
 
-            <?php if (!isset($_GET['search'])) : ?>
+            <?php if(empty($allPosts)): ?>
+                <div>
+                    <h1 class="title">Er zijn nog geen posts!</h1>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!isset($_GET['search']) && !empty($allPosts)) : ?>
             <div class="pages">
                 <?php for ($pages = 1; $pages <= $total_pages; $pages++) : ?>
                     <a href='<?php echo "?page=$pages"; ?>' class="links"><?php echo $pages; ?></a>
                 <?php endfor; ?>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
+
+            
+
         </div>
 
         <div class="block3">
             <div class="block3_right">
-                <ul class="category_items">
-                    <li class="category_title">Categorieën</li>
-                    <li>cat 1</li>
-                    <li>cat 2</li>
-                    <li>cat 3</li>
-                    <li>cat 4</li>
-                    <li>cat 5</li>
-                </ul>
+                
+
+                <form class="category" action="" method="get">
+                    <ul class="category_items">
+                        <li class="category_title">Categorieën</li>
+                        <li><input class="category_btn" type="submit" name="category" value="Algemeen"></li>
+                        <li><input class="category_btn" type="submit" name="category" value="Technologie"></li>
+                        <li><input class="category_btn" type="submit" name="category" value="Huishouden"></li>
+                        <li><input class="category_btn" type="submit" name="category" value="Koken"></li>
+                    </ul>      
+                </form>
             </div>
             
         </div>

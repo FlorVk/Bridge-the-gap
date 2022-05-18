@@ -234,6 +234,10 @@
     border-bottom: 1px solid black;
 }
 
+.category_btn {
+    border: none;
+}
+
 /* ------------- USER PROFILE ------------- */
 
 .user_content {

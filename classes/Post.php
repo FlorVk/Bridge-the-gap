@@ -160,7 +160,32 @@
 
 
             // totaal aantal pagina's nemen
-            $sql = "SELECT * FROM `posts` WHERE `title` LIKE '%$filter%' OR  `description` LIKE '%$filter%' ;";
+            $sql = "SELECT * FROM `posts` WHERE `title` LIKE '%$filter%' OR  `description` LIKE '%$filter%';";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
+        public static function getAllPostsLimitCategory($category)
+        {
+            global $page;
+            global $total_pages;
+
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $conn = Db::getInstance();
+
+            // pagination 
+            $limit = 6;
+            $offset = ($page - 1) * $limit;
+
+
+            // totaal aantal pagina's nemen
+            $sql = "SELECT * FROM `posts` WHERE `category` LIKE '%$category%' ";
             $statement = $conn->prepare($sql);
             $statement->execute();
             $result = $statement->fetchAll();
