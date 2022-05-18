@@ -112,7 +112,7 @@
                         </div>
 
                     <div class="link_box">
-                        <a id="noAccountLink" href="register.php">
+                        <a id="noAccountLink" href="login.php">
                             <p class="span_login">Log je hier in</p>
                         </a>
                     </div>
