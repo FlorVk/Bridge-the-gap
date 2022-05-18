@@ -7,8 +7,10 @@
 
                 echo
                     "<div class='user_details'>
+                        <a class='post_userinfo' href='user.php?id=".$user['id']."'>
                         <img class='profilepicture_small user_picture' src='./images/profilepictures/".$user['profilepicture']."' alt=''>
                         <p class='user_name'>".$user['firstname'] . ' ' .$user['lastname'] ."</p>
+                        </a>
                     </div>";
 
             } else {
