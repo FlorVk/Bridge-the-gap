@@ -85,10 +85,7 @@
                         </a>
                         
                     </div>
-
-                    
-
-                    <a href="#" id="noAccountLink"> <span class="span_login"></span></a><br>  
+ 
                 </div>
                 
             </form>

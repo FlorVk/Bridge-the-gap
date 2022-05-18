@@ -358,7 +358,7 @@
     vertical-align: middle;
 }
 
-/* ------------- LOGIN ------------- */
+/* ------------- LOGIN AND REGISTER ------------- */
 
 .form_login {
     width: 70%;
@@ -403,4 +403,14 @@
 
 .break {
     padding: 0 1em;
+}
+
+.inputFieldRegister{
+    border-radius: 5px;
+    margin: 0.5em 0;
+    width: 100%;
+}
+
+.inputFieldRegister1{
+    padding-right: 0.5em;
 }
