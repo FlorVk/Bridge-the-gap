@@ -99,7 +99,7 @@ require_once("bootstrap.php");
                     <div class="inputPost">
                         <h2 class="title_medium" for="">Wil je de vraag aanpassen?</h2>
                         <input type="text" placeholder="Titel van je vraag" name="updateTitle" value="<?php echo htmlspecialchars($postData['title']); ?>" class="inputField inputTitle"><br>
-                        <input type="text" placeholder="Stel hier je vraag" name="updateDescription" value="<?php echo htmlspecialchars($postData['description']); ?>" class="inputField inputDescription">
+                        <textarea class="inputField inputDescription" id="updateDescription" name="updateDescription" placeholder="Stel hier je vraag"><?php echo htmlspecialchars($postData['description']); ?></textarea>
                     </div>
 
                     <div class="addCategory">

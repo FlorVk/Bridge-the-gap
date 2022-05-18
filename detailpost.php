@@ -56,7 +56,7 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
                                 <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $posterUserData['profilepicture'] ?>" alt="">
                                 <div class="post_username"><h1 class="username_title"><?php echo $fullnamePoster ?></h1>
                             </a>
-                                    <p class="updated_when"><?php echo "Geupdate ".$postData['time_posted']; ?></p>
+                                    <p class="updated_when"><?php echo "Geüpdate ".$postData['time_posted']; ?></p>
                                 </div>
                        </div>
 

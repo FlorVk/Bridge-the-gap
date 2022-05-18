@@ -68,7 +68,7 @@ $allPosts = Post::getPostsByUserId($id);
 
                                         <div class="post_content_box">
                                             <div class="posterContainer">
-                                              <p><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                              <p><?php echo "Geüpdate ".$p['time_posted']; ?></p>
                                               <div>
                                                     <?php if($sessionId == $id) : ?>
                                                         <div class="user_self">

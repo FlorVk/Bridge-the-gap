@@ -66,7 +66,7 @@ $sessionId = $_SESSION['id'];
                                     <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
                                     <div class="post_username"><h1 class="username_title"><?php echo $post->getUserByPostId($p['id'])['firstname']?></h1>
                                 </a>
-                                    <p class="updated_when"><?php echo "Geupdate ".$p['time_posted']; ?></p>
+                                    <p class="updated_when"><?php echo "Geüpdate ".$p['time_posted']; ?></p>
                                 </div>
                             </div>
                             <div>

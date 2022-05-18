@@ -94,8 +94,8 @@
                 <div class="inputPost">
                     <h2 class="title_medium" for="">Wat is je vraag?</h2>
                     <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField inputTitle"><br>
-                    <input type="text" placeholder="Stel hier je vraag" name="description" value="" class="inputField inputDescription">
-                </div>
+                    <textarea class="inputField inputDescription" id="description" name="description" placeholder="Stel hier je vraag"></textarea>
+                    </div>
 
                 <div class="uploadPicture">
                     <h2 class="title_medium">Kies een optionele foto</h2>
