@@ -133,22 +133,22 @@ require_once("bootstrap.php");
 
         <div class="block3_update">
             <div class="block3_right updateRight">
-            <h1 class="title">Afbeelding veranderen</h1>
+                <h1 class="title">Afbeelding veranderen</h1>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-                <div class="uploadPicture">
-                    <h2 class="title_medium">Wil je de afbeelding veranderen?</h2>
-                    <input type="file" id="postImage" name="postImage">
-                </div>
-                <?php if(isset($postData['img_path'])) : ?>
-                    <div class="user__self">
-                    <img class="postpicture_medium" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
-                
-                    </div> 
-                <?php endif; ?>
-                <input type="submit" class="button" name="updatePostImage" value="Update post afbeelding">
-                
-            </form>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="uploadPicture">
+                        <h2 class="title_medium">Wil je de afbeelding veranderen?</h2>
+                        <input type="file" id="postImage" name="postImage">
+                    </div>
+                    <?php if(isset($postData['img_path'])) : ?>
+                        <div class="user__self">
+                        <img class="postpicture_medium" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
+                    
+                        </div> 
+                    <?php endif; ?>
+                    <input type="submit" class="button" name="updatePostImage" value="Update post afbeelding">
+                    
+                </form>
             </div>
         </div>
     </div>
