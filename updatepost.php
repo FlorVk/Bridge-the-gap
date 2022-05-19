@@ -94,6 +94,10 @@ require_once("bootstrap.php");
             <form action="" method="POST" enctype="multipart/form-data">
             <h1 class="title">Update je post</h1>
 
+                <?php if (isset($error)) {
+                    echo "<div class='error' id='error'>" . $error . "</div>";
+                } ?>
+
                 <div class="uploadForm">
 
                     <div class="inputPost">

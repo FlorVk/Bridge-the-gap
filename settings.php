@@ -10,63 +10,6 @@
         $userData = User::getUserFromId($sessionId);
     }
 
-    if (!empty($_POST['updateImage'])) {
-        $imageName = $_FILES['userImage']['name'];
-        $fileType  = $_FILES['userImage']['type'];
-        $fileSize  = $_FILES['userImage']['size'];
-        $fileTmpName = $_FILES['userImage']['tmp_name'];
-        $fileError = $_FILES['userImage']['error'];
-
-        $fileData = explode('/', $fileType);
-        $fileExtension = $fileData[count($fileData)-1];
-
-        if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
-            //check if file is correct type
-            //check file size
-            try {
-                if ($fileSize < 5000000) {
-                    $fileNewName = "images/profilepictures/".basename($imageName);
-                    $uploaded = move_uploaded_file($fileTmpName, $fileNewName);
-
-                    try {
-                        if ($uploaded) {
-                            $profilePicture = basename($imageName);
-                            $user->setProfilePicture($profilePicture);
-                            $user->updateProfilePicture($profilePicture, $sessionId);
-                        }
-                    } catch (Exception $e) {
-                        echo 'Er is iets misgelopen' . $e->getMessage();
-                    }
-                }
-            } catch (Exception $e) {
-                echo 'Bestand te groot' . $e->getMessage();
-            }
-        }
-    }
-
-
-    if (!empty($_POST['update'])) {
-        try {
-            $user->setFirstName($_POST['updateFirstName']);
-            $user->setLastname($_POST['updateLastName']);
-            $user->setEmail($_POST['updateEmail']);
-            $user->setBio($_POST['updateBio']);
-            $user->setUserId($userData['id']);
-
-            if(isset($_POST['updateSenior'])) {
-                $user->setSenior($_POST['updateSenior']); 
-            }
-
-            $user->updateUser();
-
-            header('location: usersettings.php');
-
-        } catch (Throwable $error) {
-            $error = $error->getMessage();
-        }
-    }
-
-
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -84,11 +27,6 @@
 <header>
         <?php include('nav.php');?>
 </header>
-
-<?php if (!empty($error)) {
-        echo $error;
-    } ?>
-
     <div class="main">
 
         <div class="block1">
@@ -119,6 +57,11 @@
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Logout</h2>
                         <a class="btn_hollow" href="logout.php">uitloggen op alle browsers</a>
+                    </div>
+
+                    <div class="settings_item">
+                        <h2 class="title_appleBlue_settings">Verwijder account</h2>
+                        <a class="btn_hollow" href="deleteuser.php">Verwijder je account</a>
                     </div>
                 </div>
                 

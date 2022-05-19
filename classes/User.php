@@ -216,6 +216,25 @@
                 return $statement->execute();
 
         }
+
+        public static function deleteUser($sessionId, $password) { 
+            $conn = Db::getInstance();
+            $sql = "SELECT * FROM `users` WHERE `id` = '$sessionId';";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetch();
+            $hash = $result["password"];
+            if (password_verify($password, $hash)) {
+                    $statement = $conn->prepare("DELETE FROM `users` WHERE `id` = :id");
+                    $statement->bindValue(":id", $sessionId);
+                    $statement->execute();
+    }
+             else {
+                    throw new Exception("Wachtwoord is onjuist");
+            }
+            
+             
+ }
     }
 
 ?>

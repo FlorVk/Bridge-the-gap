@@ -247,6 +247,15 @@ body {
     font-size: 1em;
 }
 
+.error {
+    background-color: rgb(242, 145, 145);
+    border: 2px solid rgb(142, 8, 8);
+    color: rgb(142, 8, 8);
+    padding: 0.5em;
+    border-radius: 5px;
+    margin: 0.5em 0;
+}
+
 
 /* ------------- DETAIL ------------- */
 

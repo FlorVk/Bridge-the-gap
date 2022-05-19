@@ -65,7 +65,7 @@
                 
 
                 <?php if (isset($error)) {
-                    echo "<div id='error'>" . $error . "</div>";
+                    echo "<div class='error' id='error'>" . $error . "</div>";
                 } ?>
 
                 <button class="button" type="submit">Log in</button>
