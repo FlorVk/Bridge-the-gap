@@ -306,7 +306,7 @@ body {
 }
 
 .username_title {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     color: var(--appleBlue);
 }
@@ -366,6 +366,12 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     padding-bottom: 0.5em;
+}
+
+.title_appleBlue_settings {
+    color: var(--appleBlue);
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 
@@ -462,4 +468,23 @@ body {
 
 .inputFieldRegister1{
     padding-right: 0.5em;
+}
+
+.usersettings_box {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-left: 1em;
+}
+
+.settings_container {
+    
+}
+
+.settings_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em 0;
+    border-bottom: 1px solid var(--grayBlue);
 }

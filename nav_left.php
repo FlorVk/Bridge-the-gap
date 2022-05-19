@@ -23,7 +23,7 @@
             <li><a class="menu_item" href="index.php">Home</a></li>
             <li><a class="menu_item" href="">Bellen</a></li>
             <li><a class="menu_item" href="">Berichten</a></li>
-            <li><a class="menu_item" href="usersettings.php">Instellingen</a></li>
+            <li><a class="menu_item" href="settings.php">Instellingen</a></li>
         </ul>
     </div>
     

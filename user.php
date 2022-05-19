@@ -54,7 +54,7 @@ $allPosts = Post::getPostsByUserId($id);
 
                     <?php if($sessionId == $id) : ?>
                         <div class="user__self">
-                            <a class="btn_hollow" href="usersettings.php"> Settings</a>
+                            <a class="btn_hollow" href="settings.php"> Settings</a>
                             <a class="button" href="logout.php">Logout</a>
                         </div> 
                     <?php endif; ?>
