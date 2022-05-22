@@ -104,20 +104,20 @@
                 <form action="" method="post" class="profile_info">
                             <div class="updateName">
                                 <div> 
-                                    <label>First Name</label><br>
+                                    <label>Voornaam</label><br>
                                     <input class="updateFirstName" type="text" name="updateFirstName" value="<?php echo htmlspecialchars($userData['firstname']); ?>">
                                 </div>
                                 <div>
-                                    <label>Last Name</label><br>
+                                    <label>Achternaam</label><br>
                                     <input class="updateProfileInput inputField" type="text" name="updateLastName" value="<?php echo htmlspecialchars($userData['lastname']); ?>">
                                 </div>
                             </div>
                             <div>
-                                <label>Email address</label><br>
+                                <label>E-mail addres</label><br>
                                 <input class="updateProfileInput inputField" type="email" name="updateEmail" value="<?php echo htmlspecialchars($userData['email']); ?>" readonly>
                             </div>
                             <div >
-                                <label>Bio</label><br>
+                                <label>Biografie</label><br>
                                 <input class="updateProfileInput inputField inputDescription" type="text" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
                             </div>
 

@@ -2,11 +2,11 @@
 
     <div class="nav_top">
 
-        <p>Logo</p>
+        <a href="index.php"><img class="logo_small" src="./images/components/logo_small.png" alt="logo Bridge The Gap"></a>
 
         <form class="nav_search" action="index.php" method="get">
-            <input type="text" name="search" placeholder="Search">
-            <input type="submit" value="Search">
+            <input class="search_nav" type="text" name="search" placeholder="Zoeken">
+
         </form>
 
     </div>
