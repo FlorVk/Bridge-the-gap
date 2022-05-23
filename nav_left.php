@@ -21,8 +21,8 @@
 
         <ul class="menu_items">
             <li><a class="menu_item" href="index.php">Home</a></li>
-            <li><a class="menu_item" href="">Bellen</a></li>
-            <li><a class="menu_item" href="">Berichten</a></li>
+            <li><a class="menu_item" href="call.php">Bellen</a></li>
+            <li><a class="menu_item" href="chat.php">Berichten</a></li>
             <li><a class="menu_item" href="settings.php">Instellingen</a></li>
         </ul>
     </div>

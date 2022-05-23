@@ -247,6 +247,7 @@ body {
     width: 35%;
 }
 
+
 /* ------------- BUTTONS ------------- */
 
 .btn_hollow {
@@ -346,6 +347,20 @@ body {
 .updated_when {
     color: var(--lightGray);
     font-size: 0.9em;
+}
+
+.username_user {
+    padding: 0 1em;
+}
+
+.user_senior {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: var(--lightGray);
+}
+
+.user_buttons{
+    padding-top: 0.5em;
 }
 
 /* ------------- INDEX ------------- */
@@ -515,4 +530,52 @@ body {
     justify-content: space-between;
     padding: 1em 0;
     border-bottom: 1px solid var(--grayBlue);
+}
+
+/* ------------- FRIENDLIST ------------- */
+
+
+
+.friend_nav{
+    padding: 0 2em;
+}
+
+.friends_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.friends_title{
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.friends_profile {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    padding-left: 3em;
+    padding-right: 1em;
+}
+
+.search_orange{
+    border: 3px solid var(--buttonOrange);
+    border-radius: 50px;
+    background-color: white;
+    padding: 0.5em;
+    background-image: url(../images/components/search.png);
+    background-size: 20px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    width: 90%;
+}
+
+.search_orange::placeholder {
+    color: var(--buttonOrange);
+    font-weight: bold;
+    font-size: 1.1em;
 }

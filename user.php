@@ -45,7 +45,7 @@ $allPosts = Post::getPostsByUserId($id);
                 <div id='showcase-success'></div>
                     <div class="poster_head">
                         <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
-                        <h1 class="poster_username post_username"><?php echo $fullname ?>
+                        <h1 class="username_title username_user"><?php echo $fullname ?>
                         <p class="user_senior"><?php echo $userData['senior']; ?></p> </h1>
                     </div>
 
@@ -54,7 +54,7 @@ $allPosts = Post::getPostsByUserId($id);
                     </div>
 
                     <?php if($sessionId == $id) : ?>
-                        <div class="user__self">
+                        <div class="user__self user_buttons">
                             <a class="btn_hollow" href="settings.php"> Settings</a>
                             <a class="button" href="logout.php">Logout</a>
                         </div> 
@@ -91,7 +91,7 @@ $allPosts = Post::getPostsByUserId($id);
 
                                         <div class="post_content_box">
                                             <div class="posterContainer">
-                                              <p><?php echo "Geüpdate ".$p['time_posted']; ?></p>
+                                              <p class="updated_when"><?php echo "Geüpdate ".$p['time_posted']; ?></p>
                                               <div>
                                                     <?php if($sessionId == $id) : ?>
                                                         <div class="user_self">
@@ -122,8 +122,10 @@ $allPosts = Post::getPostsByUserId($id);
         </div>
 
         <div class="block3">
-            <div class="block3_right">
-            </div>
+            <?php if($sessionId == $id) : ?>
+                <?php include('friendlist_menu.php'); ?>
+            <?php endif; ?>
+                
         </div>
 
     </div>

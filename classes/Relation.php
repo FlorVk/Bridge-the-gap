@@ -179,4 +179,24 @@
             $result = $statement->fetch();
             return $result;
         }
+
+        public static function getFriends($fromId){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM `relations` WHERE `status`='F' AND `from_id` = $fromId");
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
+        public static function getUserByFriendId($toId)
+    {
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM users INNER JOIN relations ON users.id = relations.to_id WHERE relations.to_id = :toId");
+        $statement->bindValue(':toId', $toId);
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result;
+    }
+
+        
     }
