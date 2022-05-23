@@ -42,6 +42,7 @@ $allPosts = Post::getPostsByUserId($id);
         <div class="user_profile block2_index">
             <div class="user_profile">
                 <div class="user_content ">
+                <div id='showcase-success'></div>
                     <div class="poster_head">
                         <img class="profilepicture_medium" src="./images/profilepictures/<?php echo $userData['profilepicture'] ?>" alt="">
                         <h1 class="poster_username post_username"><?php echo $fullname ?>
@@ -58,6 +59,28 @@ $allPosts = Post::getPostsByUserId($id);
                             <a class="button" href="logout.php">Logout</a>
                         </div> 
                     <?php endif; ?>
+
+                    <?php
+                        if ($sessionId != $id){
+                            // Nog geen pending en vriendschapsverzoek aanwezig:
+                            if (relation::checkPendingFrom($sessionId, $id) == 2 && relation::checkPendingTo($id, $sessionId) == 2 && relation::checkFriends($sessionId, $id) == 2){
+                                echo '<input type="button" data-id="'.$id.'" class="add button" id="pendButton" name="friend"  value="Stuur vriendschapsverzoek!"/ >';
+                                }
+                            // WEl een pending en geen vriendschapsverzoek aanwezig:
+                            elseif (relation::checkFriends($sessionId, $id) == 2 && (relation::checkPendingFrom($sessionId, $id) == 1 || relation::checkPendingTo($id, $sessionId) == 1) ){
+                                if (relation::checkPendingFrom($sessionId, $id) == 1){
+                                    echo '<input type="button" data-id="'.$id.'" class="add button" id="unpendButton" name="friend"  value="Annuleer vriendschapsverzoek"/ >';
+                                    }
+                                else {
+                                    echo '<input type="button" data-id="'.$id.'" class="add button" id="friendButton" name="friend"  value="Accepteer vriendschapsverzoek"/ >';
+                                    }
+                            }
+                            // WEl een vriend:
+                            elseif ((relation::checkFriends($sessionId, $id) == 1)){
+                                echo '<input type="button" data-id="'.$id.'" class="remove button" id="unfriendButton" name="friend"  value="Verwijder als vriend" />';            
+                            }
+                        }
+                    ?>
                 </div>
                 
                 <div class="posts">
@@ -104,8 +127,85 @@ $allPosts = Post::getPostsByUserId($id);
         </div>
 
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).on("click","#friendButton",function(){
+            console.log("press");
+        $("#unfriendButton").show();
+        $("#friendButton").hide();
+        $.ajax({  
+            url:"ajax-add_friend.php",  
+            method:"POST",  
+            data:{
+                to: $(this).attr("data-id"),
+                from: <?php echo htmlspecialchars($sessionId) ?> 
+            
+            },  
+            success:function(data){ 
+                $('#showcase-success').html(data); 
+                $('#showcase-success').addClass("show");
+                location.reload();
+            } 
+        }); 
+    }); 
+    $(document).on("click","#unfriendButton",function(){
+        console.log("press");
+        $("#friendButton").show();
+        $("#unfriendButton").hide();
+        $.ajax({  
+            url:"ajax-remove_friend.php",  
+            method:"POST",  
+            data:{
+                to: $(this).attr("data-id"),
+                from: <?php echo htmlspecialchars($sessionId) ?> 
+            },  
+            success:function(data){ 
+                $('#showcase-success').html(data); 
+                $('#showcase-success').addClass("show");
+                location.reload();
+            } 
+        }); 
+    }); 
 
-    
+    $(document).on("click","#pendButton",function(){
+        console.log("press");
+        $("#pendButton").show();
+        $("#unpendingButton").hide();
+        $.ajax({  
+            url:"ajax-request_friend.php",  
+            method:"POST",  
+            data:{
+                to: $(this).attr("data-id"),
+                from: <?php echo htmlspecialchars($sessionId) ?> 
+            },  
+            success:function(data){ 
+                $('#showcase-success').html(data); 
+                $('#showcase-success').addClass("show");
+                location.reload();
+            } 
+        }); 
+    }); 
+
+    $(document).on("click","#unpendButton",function(){
+        console.log("press");
+        $("#unpendButton").show();
+        $("#pendButton").hide();
+        $.ajax({  
+            url:"ajax-remove_request.php",  
+            method:"POST",  
+            data:{
+                to: $(this).attr("data-id"),
+                from: <?php echo htmlspecialchars($sessionId) ?> 
+            },  
+            success:function(data){ 
+                $('#showcase-success').html(data); 
+                $('#showcase-success').addClass("show");
+                location.reload();
+            } 
+        }); 
+    });
+
+    </script>
 
     
 
