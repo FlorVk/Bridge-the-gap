@@ -125,7 +125,7 @@ require_once("bootstrap.php");
                                 <label for="">Koken</label>
                             </div>
                     </div>
-                    <input type="submit" class="button" name="update" value="Upload project">
+                    <input type="submit" class="button" name="update" value="Pas vraag aan">
                 </div>
 
             </form>
@@ -137,7 +137,7 @@ require_once("bootstrap.php");
 
         <div class="block3_update">
             <div class="block3_right updateRight">
-                <h1 class="title">Afbeelding veranderen</h1>
+                <h1 class="title">Afbeelding</h1>
 
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="uploadPicture">
@@ -150,12 +150,12 @@ require_once("bootstrap.php");
                     
                         </div> 
                     <?php endif; ?>
-                    <input type="submit" class="button" name="updatePostImage" value="Update post afbeelding">
+                    <input type="submit" class="button" name="updatePostImage" value="Pas de afbeelding aan">
                     
                 </form>
 
                 <div class="user_self">
-                    <a class="button" href="deletepost.php?id=<?php echo $postData['id'] ?>"> Delete</a>
+                    <a class="btn_hollow" href="deletepost.php?id=<?php echo $postData['id'] ?>"> Verwijder post!</a>
                 </div>
             </div>
         </div>

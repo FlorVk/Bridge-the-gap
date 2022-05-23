@@ -64,7 +64,9 @@ $sessionId = $_SESSION['id'];
         </div>
 
         <div class="block3">
-            <?php include('friendlist_menu.php'); ?>
+            <div class="block3_friendlist">
+                <?php include('friendlist_menu.php'); ?>  
+            </div>
         </div>
 
     </div>

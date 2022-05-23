@@ -17,6 +17,10 @@ body {
 
 /* ------------- NAV ------------- */
 
+header {
+    position: sticky;
+  top: 0;
+}
 
 .nav_left {
     display:flex;
@@ -92,7 +96,6 @@ body {
 }
 
 .search_nav {
-    background-color: white;
     padding: 0.5em;
     border: none;
     background-image: url(../images/components/search.png);
@@ -184,6 +187,9 @@ body {
 .post_content_image{
     padding: 0.5em 0;
 }
+.post_content_box{
+    padding: 0.5em 0;
+}
 
 /* ------------- BLOCKS ------------- */
 
@@ -201,10 +207,13 @@ body {
 
 .block1 {
     width: 30%;
+    
 }
 
 .block1_left {
     padding-left: 45%;
+    position: sticky;
+    top: 95px;
 }
 
 .block2{
@@ -239,8 +248,16 @@ body {
     width: 30%;
 }
 
+.block3_friendlist {
+    padding-right: 15%;
+    position: sticky;
+    top: 95px;
+}
+
 .block3_right {
     padding-right: 45%;
+    position: sticky;
+    top: 95px;
 }
 
 .block3_update {
@@ -331,7 +348,7 @@ body {
 .user_content {
    border-bottom: 1px solid var(--grayBlue);
    margin-bottom: 2em;
-   padding: 2em 0;
+   padding: 2em 1em;
 }
 
 .user__information {
@@ -534,6 +551,9 @@ body {
 
 /* ------------- FRIENDLIST ------------- */
 
+.friends_list {
+    padding-bottom: 0.5em;
+}
 
 
 .friend_nav{
@@ -564,7 +584,6 @@ body {
 .search_orange{
     border: 3px solid var(--buttonOrange);
     border-radius: 50px;
-    background-color: white;
     padding: 0.5em;
     background-image: url(../images/components/search.png);
     background-size: 20px;

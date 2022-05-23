@@ -121,7 +121,7 @@
                             <label for="">Koken</label>
                         </div>
                 </div>
-                <input type="submit" class="button" value="Upload project">
+                <input type="submit" class="button" value="Stel je vraag">
             </div>
 
             </form>

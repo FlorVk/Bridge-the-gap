@@ -95,7 +95,7 @@ $allPosts = Post::getPostsByUserId($id);
                                               <div>
                                                     <?php if($sessionId == $id) : ?>
                                                         <div class="user_self">
-                                                            <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update post</a>
+                                                            <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update</a>
                                                         </div> 
                                                     <?php endif; ?>
                                               </div> 
@@ -120,13 +120,15 @@ $allPosts = Post::getPostsByUserId($id);
             
 
         </div>
-
         <div class="block3">
-            <?php if($sessionId == $id) : ?>
-                <?php include('friendlist_menu.php'); ?>
-            <?php endif; ?>
-                
+            <div class="block3_friendlist">
+                <?php if($sessionId == $id) : ?>
+                    <?php include('friendlist_menu.php'); ?>
+                <?php endif; ?>
+                    
+            </div>
         </div>
+        
 
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

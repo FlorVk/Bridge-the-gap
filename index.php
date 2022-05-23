@@ -64,7 +64,7 @@ $sessionId = $_SESSION['id'];
                             <div class="poster_head">
                                 <a href="user.php?id=<?php echo $p['user_id'] ?>" class="post_userinfo">
                                     <img class="profilepicture_small" src="./images/profilepictures/<?php echo $post->getUserByPostId($p['id'])['profilepicture'] ?>" alt="">
-                                    <div class="post_username"><h1 class="username_title"><?php echo $post->getUserByPostId($p['id'])['firstname']?></h1>
+                                    <div class="post_username"><h1 class="username_title"><?php echo $post->getUserByPostId($p['id'])['firstname']?> <?php echo $post->getUserByPostId($p['id'])['lastname']?></h1>
                                 </a>
                                     <p class="updated_when"><?php echo "Geüpdate ".$p['time_posted']; ?></p>
                                 </div>
@@ -72,7 +72,7 @@ $sessionId = $_SESSION['id'];
                             <div>
                                 <?php if($sessionId == $p['user_id']) : ?>
                                     <div class="user_self">
-                                        <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update post</a>
+                                        <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update</a>
                                     </div> 
                                 <?php endif; ?>
                             </div>

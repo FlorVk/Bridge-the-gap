@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             
-                            <input class="button" type="submit" name="update" value="Update gegevens">
+                            <input class="button" type="submit" name="update" value="Update je gegevens">
                 </form> 
             </div>
         </div>
@@ -145,7 +145,7 @@
                         <img class="profilepicture_large" src="images/profilepictures/<?php echo $userData['profilepicture']; ?>" alt="Profile picture">
                     </div>
                     <input type="file" id="userImage" name="userImage" value=""><br>
-                    <input class="button" type="submit" name="updateImage" value="Update profile picture">
+                    <input class="button" type="submit" name="updateImage" value="Update je profiel foto">
                 </form>
             </div>
         </div>
