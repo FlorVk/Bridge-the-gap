@@ -85,7 +85,7 @@ $allPosts = Post::getPostsByUserId($id);
                 
                 <div class="posts">
                     <?php foreach ($allPosts as $p) : ?>
-                        <div class="post">
+                        <div class="post user_post">
                                 <div class="post_content">
                                     <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
 
@@ -111,7 +111,7 @@ $allPosts = Post::getPostsByUserId($id);
                                             </div> 
                                         <?php endif; ?>
                                     </a>
-                                </div>
+                                </div>    
                         </div>
                     <?php endforeach; ?>
                 </div>

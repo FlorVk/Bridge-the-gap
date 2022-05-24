@@ -344,6 +344,9 @@ header {
 }
 
 /* ------------- USER PROFILE ------------- */
+.user_post {
+    margin-bottom: 1em;
+}
 
 .user_content {
    border-bottom: 1px solid var(--grayBlue);
