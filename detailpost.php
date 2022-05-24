@@ -21,6 +21,9 @@ $firstNamePoster = $posterUserData['firstname'];
 $lastNamePoster = $posterUserData['lastname'];
 $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
 
+$comment = new Comment;
+$allComments = Comment::getAll($postId); 
+
 
 
 ?><!DOCTYPE html>
@@ -84,6 +87,34 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
                             
                         
                     </div>
+
+                    <div>
+
+                        
+
+                        <div class="post_comments">
+                            <div class="post_comments_form">
+                                <input class="comment_input" type="text" id="commentText" placeholder="What's on your mind">
+                                <a href="#" class="btn" id="btnAddComment" data-postid="<?php echo $postData['id']; ?>">Add comment</a>
+                            </div>
+                        </div>
+
+                        <div class="comments">
+
+                            <ul class="commentsList">
+                                <?php foreach ($allComments as $c) : ?>
+                                    <li>
+                                        <div>
+                                            <p class="username_title comment_title"><?php echo  $c['firstname'] ?> <?php echo  $c['lastname'] ?></p>
+                                            <p class="comment_text"><?php echo $c['comment'] ?></p>
+                                        </div>
+                                        <p class="updated_when"><?php echo $c['date'] ?></p>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                            
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -96,7 +127,45 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
             </div>
         </div>
     </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        document.querySelector("#btnAddComment").addEventListener("click", function() {
+            let postId = this.dataset.postid;
+            let text = document.querySelector("#commentText").value;
         
+            event.preventDefault();
+            console.log(postId);
+            console.log(text);
+
+            const formData = new FormData();
+
+            formData.append('text', text);
+            formData.append('postId', postId);
+
+            fetch('ajax-add_comment.php', {
+            method: 'POST',
+            body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                let newComment = document.createElement('ul');
+                newComment.innerHTML = result.data.user + ": " + result.data.comment;
+                document.querySelector(".commentsList").appendChild(newComment)
+            })
+            .catch(error => {
+            console.error('Error:', error);
+            });
+
+            //let commentCount = parseInt(e.querySelector(".commentCount").innerHTML);
+            //commentCount++;
+            //e.querySelector('.commentCount').innerHTML = commentCount;
+            }); 
+
+
+
+            
+    </script>
     
 </body>
 </html>

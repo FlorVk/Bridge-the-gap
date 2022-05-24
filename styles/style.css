@@ -598,3 +598,30 @@ header {
     font-weight: bold;
     font-size: 1.1em;
 }
+
+.commentsList li{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--grayBlue);
+}
+
+.comment_title {
+    font-size: 1em;
+}
+
+.comment_text {
+    padding-top: 0.3em;
+}
+
+.comment_input {
+    border: 3px solid var(--appleBlue);
+    border-radius: 50px;
+    padding: 0.5em;
+    width: 70%;
+}
+
+.comment_input::placeholder {
+    color: var(--appleBlue);
+}
