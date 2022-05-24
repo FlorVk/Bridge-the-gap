@@ -26,6 +26,7 @@ $sessionId = $_SESSION['id'];
 
 
 
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +60,7 @@ $sessionId = $_SESSION['id'];
                 </div>
             </div>
             <?php foreach ($allPosts as $p) : ?>
+                <?php $allComments = Comment::getAll($p['id']); ?>
                 <div class="post">
                         <div class="posterContainer">
                             <div class="poster_head">
@@ -97,7 +99,14 @@ $sessionId = $_SESSION['id'];
                             </a>
                             
                         </div>
+                        
                 </div>
+                <div class="post_bottom">
+                    <div>
+                        <p class="countComments">Comments: <?php echo count($allComments); ?></p>
+                    </div>
+                </div>
+                
             <?php endforeach; ?>
 
             <?php if(empty($allPosts)): ?>

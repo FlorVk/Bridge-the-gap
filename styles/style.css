@@ -159,10 +159,10 @@ header {
 /* ------------- POSTS ------------- */
 
 .post {
-    margin-bottom: 1em;
     padding: 1em 1em;
     border: 1px solid var(--grayBlue);
-    border-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: white;
 }
 
@@ -416,6 +416,17 @@ header {
     font-size: 1.1em;
 }
 
+.post_bottom {
+    border: 1px solid black;
+    border-top: none;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    display: flex;
+    justify-content: end;
+    border-bottom-left-radius: 3px ;
+    border-bottom-right-radius: 3px ;
+}
+
 /* ------------- MAKE POST ------------- */
 
 .title{
@@ -624,4 +635,8 @@ header {
 
 .comment_input::placeholder {
     color: var(--appleBlue);
+}
+
+.countComments {
+    padding: 0.5em 0;
 }

@@ -99,4 +99,13 @@ include_once(__DIR__ . "/Db.php");
             return $result;
 
         }
+
+        public function countComments($postId){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('SELECT COUNT(*)FROM comments WHERE post_id = :postId');
+            $statement->bindValue(":postId", $postId);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
