@@ -6,14 +6,15 @@
             $email = $_POST["email"];
             $password = $_POST["password"];
 
-            $user = new USer();
+            $user = new User();
             $user->setEmail($email);
             $user->setPassword($password);
 
             if($user->canLogin($email, $password)){
                 $id = User::getIdByEmail($user->getEmail());
                 $user->setUserId($id);
-                $user->startSession();  
+                $user->startSession();
+                header('location: index.php'); 
             }
         } catch (Throwable $error){
             $error = $error->getMessage();

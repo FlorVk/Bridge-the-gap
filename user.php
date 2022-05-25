@@ -87,31 +87,31 @@ $allPosts = Post::getPostsByUserId($id);
                     <?php foreach ($allPosts as $p) : ?>
                         <div class="post user_post">
                                 <div class="post_content">
-                                    <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
-
-                                        <div class="post_content_box">
-                                            <div class="posterContainer">
-                                              <p class="updated_when"><?php echo "Geüpdate ".$p['time_posted']; ?></p>
-                                              <div>
-                                                    <?php if($sessionId == $id) : ?>
-                                                        <div class="user_self">
-                                                            <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update</a>
-                                                        </div> 
-                                                    <?php endif; ?>
-                                              </div> 
+                                    <a href="detailpost.php?id=<?php echo $p['id'] ?>">
+                                    <div class="post_content_box">
+                                                <div class="posterContainer">
+                                                <p class="updated_when"><?php echo "Geüpdate ".$p['time_posted']; ?></p>
+                                                <div>
+                                                        <?php if($sessionId == $id) : ?>
+                                                            <div class="user_self">
+                                                                <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update</a>
+                                                            </div> 
+                                                        <?php endif; ?>
+                                                </div> 
+                                                </div>
+                                                
+                                                <p class="post_title"><?php echo $p['title']; ?></p>
+                                                <p class="post_description"><?php echo $p['description']; ?></p>
                                             </div>
-                                            
-                                            <p class="post_title"><?php echo $p['title']; ?></p>
-                                            <p class="post_description"><?php echo $p['description']; ?></p>
-                                        </div>
-
-                                        <?php if(isset($p['img_path'])) : ?>
-                                            <div class="post_content_image">
-                                                <img class="postpicture_medium" src="images/postpictures/<?php echo $p['img_path']; ?>" alt="Post picture">
-                                            </div> 
-                                        <?php endif; ?>
                                     </a>
-                                </div>    
+                                            
+
+                                            <?php if(isset($p['img_path'])) : ?>
+                                                <div class="post_content_image">
+                                                    <img class="postpicture_medium" src="images/postpictures/<?php echo $p['img_path']; ?>" alt="Post picture">
+                                                </div> 
+                                            <?php endif; ?>
+                                    </div>    
                         </div>
                     <?php endforeach; ?>
                 </div>

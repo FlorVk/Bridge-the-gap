@@ -82,7 +82,7 @@ $sessionId = $_SESSION['id'];
                         
 
                         <div class="post_content">
-                            <a class="post_detail" href="detailPost.php?id=<?php echo $p['id'] ?>">
+                            <a class="post_detail" href="detailpost.php?id=<?php echo $p['id'] ?>">
 
                             <div class="post_content_box">
                                 

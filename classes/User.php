@@ -188,7 +188,6 @@
     
             session_start();
             $_SESSION['id'] = $sessionId;
-            header('location: index.php');
         }
 
         public function updateProfilePicture($profilepicture, $userId)
