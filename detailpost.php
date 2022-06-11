@@ -34,7 +34,8 @@ $allComments = Comment::getAll($postId);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">  
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">  
 </head>
 <body>
     <header>
@@ -94,8 +95,8 @@ $allComments = Comment::getAll($postId);
 
                         <div class="post_comments">
                             <div class="post_comments_form">
-                                <input class="comment_input" type="text" id="commentText" placeholder="What's on your mind">
-                                <a href="#" class="btn" id="btnAddComment" data-postid="<?php echo $postData['id']; ?>">Add comment</a>
+                                <input class="comment_input" type="text" id="commentText" placeholder="Antwoord op vraag">
+                                <a href="#" class="post_comment_button" id="btnAddComment" data-postid="<?php echo $postData['id']; ?>">Plaats</a>
                             </div>
                         </div>
 
@@ -104,8 +105,8 @@ $allComments = Comment::getAll($postId);
                             <ul class="commentsList">
                                 <?php foreach ($allComments as $c) : ?>
                                     <li>
-                                        <div>
-                                            <p class="username_title comment_title"><?php echo  $c['firstname'] ?> <?php echo  $c['lastname'] ?></p>
+                                        <div class="comment">
+                                            <a href="user.php?id=<?php echo $postData['user_id'] ?>"><p class="username_title comment_title"><?php echo  $c['firstname'] ?> <?php echo  $c['lastname'] ?></p></a>
                                             <p class="comment_text"><?php echo $c['comment'] ?></p>
                                         </div>
                                         <p class="updated_when"><?php echo $c['date'] ?></p>
@@ -151,7 +152,8 @@ $allComments = Comment::getAll($postId);
             .then(result => {
                 let newComment = document.createElement('ul');
                 newComment.innerHTML = result.data.user + ": " + result.data.comment;
-                document.querySelector(".commentsList").appendChild(newComment)
+                document.querySelector(".commentsList").appendChild(newComment);
+                location.reload();
             })
             .catch(error => {
             console.error('Error:', error);

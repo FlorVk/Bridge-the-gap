@@ -21,7 +21,7 @@
         public function setFirstname($firstname)
         {
             if (empty($firstname)) {
-                throw new Exception("firstname cant be empty");
+                throw new Exception("Een voornaam is nodig.");
             }
             $this->firstname = $firstname;
 
@@ -36,7 +36,7 @@
         public function setLastname($lastname)
         {
             if (empty($lastname)) {
-                throw new Exception("lastname cant be empty");
+                throw new Exception("Naam mag niet leeg zijn.");
             }
             $this->lastname = $lastname;
             return $this;
@@ -48,7 +48,7 @@
                 $this->email = $email;
                 return $this;
             } else {
-                throw new Exception("email can't be empty");
+                throw new Exception("Je hebt een email nodig.");
             }
         }
         public function getEmail()
@@ -64,7 +64,7 @@
         public function setPassword($password)
         {
                 if (strlen($password) < 5) {
-                        throw new Exception("Passwords must be longer than 5 characters.");
+                        throw new Exception("Wachtwoord moet meer dan 5 tekens bevatten.");
                 }
                 $this->password = $password;
                 return $this;
@@ -115,7 +115,7 @@
                 $this->profilepicture = $profilepicture;
                 return $this;
             } else {
-                throw new Exception("Foto mag niet leeg zijn");
+                throw new Exception("Foto mag niet leeg zijn.");
             }
         }
         public function getProfilePicture()

@@ -70,7 +70,7 @@ $allPosts = Post::getPostsByUserId($id);
                             // WEl een pending en geen vriendschapsverzoek aanwezig:
                             elseif (Relation::checkFriends($sessionId, $id) == 2 && (Relation::checkPendingFrom($sessionId, $id) == 1 || Relation::checkPendingTo($id, $sessionId) == 1) ){
                                 if (Relation::checkPendingFrom($sessionId, $id) == 1){
-                                    echo '<input type="button" data-id="'.$id.'" class="add button" id="unpendButton" name="friend"  value="Annuleer vriendschapsverzoek"/ >';
+                                    echo '<input type="button" data-id="'.$id.'" class="add btn_hollow" id="unpendButton" name="friend"  value="Annuleer vriendschapsverzoek"/ >';
                                     }
                                 else {
                                     echo '<input type="button" data-id="'.$id.'" class="add button" id="friendButton" name="friend"  value="Accepteer vriendschapsverzoek"/ >';
@@ -78,7 +78,7 @@ $allPosts = Post::getPostsByUserId($id);
                             }
                             // WEl een vriend:
                             elseif ((Relation::checkFriends($sessionId, $id) == 1)){
-                                echo '<input type="button" data-id="'.$id.'" class="remove button" id="unfriendButton" name="friend"  value="Verwijder als vriend" />';            
+                                echo '<input type="button" data-id="'.$id.'" class="remove btn_hollow" id="unfriendButton" name="friend"  value="Verwijder als vriend" />';            
                             }
                         }
                     ?>

@@ -23,8 +23,10 @@ include_once(__DIR__ . "/Db.php");
          */
         public function setComment($comment)
         {
+            if (empty($comment)) {
+                throw new Exception("Plaats een comment.");
+            }
             $this->comment = $comment;
-
             return $this;
         }
 

@@ -20,7 +20,7 @@
         public function setTitle($title)
         {
             if (empty($title)) {
-                throw new Exception("title cant be empty");
+                throw new Exception("De post moet een titel hebben.");
             }
             $this->title = $title;
 
@@ -35,7 +35,7 @@
         public function setDescription($description)
         {
             if (empty($description)) {
-                throw new Exception("Description cant be empty");
+                throw new Exception("Post moet een inhoud hebben.");
             }
             $this->description = $description;
             return $this;

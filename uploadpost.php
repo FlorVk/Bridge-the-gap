@@ -56,8 +56,8 @@
             
             $post->uploadPost();
 
-        } catch (Exception $e) {
-            echo $e->getMessage();
+        } catch (Throwable $error){
+            $error = $error->getMessage();
         }
         
     }
@@ -90,6 +90,12 @@
 
             <div class="uploadForm">
                 <h1 class="title">Maak je post</h1>
+
+                <div>
+                <?php if (isset($error)) {
+                    echo "<div class='error' id='error'>" . $error . "</div>";
+                } ?>
+                </div>
                 
                 <div class="inputPost">
                     <h2 class="title_medium" for="">Wat is je vraag?</h2>
