@@ -9,20 +9,20 @@ if (isset($_POST['to'])) {
         $fromId = $sessionId;
         $toId = $_POST["to"];
 
-        if ((relation::checkFriends($fromId, $toId) == 1 || relation::checkFriendsTo($toId, $fromId) == 1))
+        if ((Relation::checkFriends($fromId, $toId) == 1 || Relation::checkFriendsTo($toId, $fromId) == 1))
         {
             //echo "Jullie zijn al vrienden!";
         }
-        elseif (relation::checkFriends($fromId, $toId) == 2 || relation::checkFriendsTo($toId, $fromId) == 2)
+        elseif (Relation::checkFriends($fromId, $toId) == 2 || Relation::checkFriendsTo($toId, $fromId) == 2)
         {
             $friend = new Relation();
             $friend->setFromId($fromId);
             $friend->setToId($toId);
 
-            if (relation::checkPendingFrom($fromId, $toId) == 1) {
+            if (Relation::checkPendingFrom($fromId, $toId) == 1) {
                 //echo "pending from you";
             }
-            elseif (relation::checkPendingTo($toId, $fromId) == 1){
+            elseif (Relation::checkPendingTo($toId, $fromId) == 1){
                 //echo "pending from other person";
                 $friend->addFriend($fromId, $toId);
                 $friend->acceptFriend($toId, $fromId);

@@ -35,6 +35,7 @@ $sessionId = $_SESSION['id'];
     <title>Index</title> 
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
     <header>

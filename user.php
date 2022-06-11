@@ -24,7 +24,8 @@ $allPosts = Post::getPostsByUserId($id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="styles/reset.css">  
-    <link rel="stylesheet" href="styles/style.css">  
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
 
@@ -63,12 +64,12 @@ $allPosts = Post::getPostsByUserId($id);
                     <?php
                         if ($sessionId != $id){
                             // Nog geen pending en vriendschapsverzoek aanwezig:
-                            if (relation::checkPendingFrom($sessionId, $id) == 2 && relation::checkPendingTo($id, $sessionId) == 2 && relation::checkFriends($sessionId, $id) == 2){
+                            if (Relation::checkPendingFrom($sessionId, $id) == 2 && Relation::checkPendingTo($id, $sessionId) == 2 && Relation::checkFriends($sessionId, $id) == 2){
                                 echo '<input type="button" data-id="'.$id.'" class="add button" id="pendButton" name="friend"  value="Stuur vriendschapsverzoek!"/ >';
                                 }
                             // WEl een pending en geen vriendschapsverzoek aanwezig:
-                            elseif (relation::checkFriends($sessionId, $id) == 2 && (relation::checkPendingFrom($sessionId, $id) == 1 || relation::checkPendingTo($id, $sessionId) == 1) ){
-                                if (relation::checkPendingFrom($sessionId, $id) == 1){
+                            elseif (Relation::checkFriends($sessionId, $id) == 2 && (Relation::checkPendingFrom($sessionId, $id) == 1 || Relation::checkPendingTo($id, $sessionId) == 1) ){
+                                if (Relation::checkPendingFrom($sessionId, $id) == 1){
                                     echo '<input type="button" data-id="'.$id.'" class="add button" id="unpendButton" name="friend"  value="Annuleer vriendschapsverzoek"/ >';
                                     }
                                 else {
@@ -76,7 +77,7 @@ $allPosts = Post::getPostsByUserId($id);
                                     }
                             }
                             // WEl een vriend:
-                            elseif ((relation::checkFriends($sessionId, $id) == 1)){
+                            elseif ((Relation::checkFriends($sessionId, $id) == 1)){
                                 echo '<input type="button" data-id="'.$id.'" class="remove button" id="unfriendButton" name="friend"  value="Verwijder als vriend" />';            
                             }
                         }
@@ -131,15 +132,16 @@ $allPosts = Post::getPostsByUserId($id);
         
 
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
+    
         $(document).on("click","#friendButton",function(){
             console.log("press");
         $("#unfriendButton").show();
         $("#friendButton").hide();
         $.ajax({  
             url:"ajax-add_friend.php",  
-            method:"POST",  
+            method:"POST",
             data:{
                 to: $(this).attr("data-id"),
                 from: <?php echo htmlspecialchars($sessionId) ?> 
@@ -157,7 +159,7 @@ $allPosts = Post::getPostsByUserId($id);
         $("#friendButton").show();
         $("#unfriendButton").hide();
         $.ajax({  
-            url:"ajax-remove_friend.php",  
+            url:"ajax-remove_friend.php",
             method:"POST",  
             data:{
                 to: $(this).attr("data-id"),
@@ -170,13 +172,12 @@ $allPosts = Post::getPostsByUserId($id);
             } 
         }); 
     }); 
-
     $(document).on("click","#pendButton",function(){
         console.log("press");
         $("#pendButton").show();
         $("#unpendingButton").hide();
         $.ajax({  
-            url:"ajax-request_friend.php",  
+            url:"ajax-request_friend.php",
             method:"POST",  
             data:{
                 to: $(this).attr("data-id"),
@@ -188,14 +189,14 @@ $allPosts = Post::getPostsByUserId($id);
                 location.reload();
             } 
         }); 
-    }); 
+    });
 
     $(document).on("click","#unpendButton",function(){
         console.log("press");
         $("#unpendButton").show();
         $("#pendButton").hide();
         $.ajax({  
-            url:"ajax-remove_request.php",  
+            url:"ajax-remove_request.php", 
             method:"POST",  
             data:{
                 to: $(this).attr("data-id"),
@@ -210,6 +211,8 @@ $allPosts = Post::getPostsByUserId($id);
     });
 
     </script>
+
+    
 
     
 

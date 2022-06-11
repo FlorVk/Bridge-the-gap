@@ -36,6 +36,7 @@ $sessionId = $_SESSION['id'];
     <title>Index</title> 
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
     <header>
@@ -51,12 +52,12 @@ $sessionId = $_SESSION['id'];
         </div>
     
         <div class="posts block2_index">
-            <div class="index_add">
+            <div class="index_add"> 
                 <p class="index_post_button">Wat will je vragen?</p>
                 <div class="make_post">
-                    <a class="make_post_border" href="uploadpost.php">Vraag</a>
-                    <a class="make_post_border" href="uploadpost.php">Antwoord</a>
-                    <a href="uploadpost.php">Bericht</a>
+                    <a class="make_post_border" href="uploadpost.php"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
+                    <a class="make_post_border" href="uploadpost.php"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Antwoord</a>
+                    <a href="uploadpost.php"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
                 </div>
             </div>
             <?php foreach ($allPosts as $p) : ?>

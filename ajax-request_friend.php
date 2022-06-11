@@ -9,11 +9,11 @@ if (isset($_POST['to'])) {
         $fromId = $sessionId;
         $toId = $_POST["to"];
 
-        if ((relation::checkPendingFrom($fromId, $toId) == 1 || relation::checkPendingTo($toId, $fromId) == 1))
+        if ((Relation::checkPendingFrom($fromId, $toId) == 1 || Relation::checkPendingTo($toId, $fromId) == 1))
         {
             //echo "Al een verzoek gestuurd!";
         }
-        elseif (relation::checkPendingFrom($fromId, $toId) == 2 || relation::checkPendingTo($toId, $fromId) == 2)
+        elseif (Relation::checkPendingFrom($fromId, $toId) == 2 || Relation::checkPendingTo($toId, $fromId) == 2)
         {
        
         

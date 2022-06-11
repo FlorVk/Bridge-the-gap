@@ -9,7 +9,7 @@ if (isset($_POST['to'])) {
         $fromId = $sessionId;
         $toId = $_POST["to"];
 
-        if ((relation::checkFriends($fromId, $toId) == 1 || relation::checkFriendsTo($toId, $fromId) == 1))
+        if ((Relation::checkFriends($fromId, $toId) == 1 || Relation::checkFriendsTo($toId, $fromId) == 1))
         {
             $friend = new Relation();
             
@@ -21,7 +21,7 @@ if (isset($_POST['to'])) {
             //echo "Je bent niet meer bevriend met  <b>".json_encode($user["firstname"])."</b>";
             
         }
-        elseif (relation::checkFriends($fromId, $toId) == 2 || relation::checkFriendsTo($toId, $fromId) == 2)
+        elseif (Relation::checkFriends($fromId, $toId) == 2 || Relation::checkFriendsTo($toId, $fromId) == 2)
         {
             //echo "Jullie zijn al vrienden!";
         }

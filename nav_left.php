@@ -20,10 +20,10 @@
         ?>
 
         <ul class="menu_items">
-            <li><a class="menu_item" href="index.php">Home</a></li>
-            <li><a class="menu_item" href="call.php">Bellen</a></li>
-            <li><a class="menu_item" href="chat.php">Berichten</a></li>
-            <li><a class="menu_item" href="settings.php">Instellingen</a></li>
+            <li><a href="index.php"><img class="nav-icon" src="./images/components/home.svg" alt=""><a class="menu_item" href="index.php">Home</a></a></li>
+            <li><a href="call.php"><img class="nav-icon" src="./images/components/phone-call.svg" alt=""><a class="menu_item" href="call.php">Bellen</a></a></li>
+            <li><a href="chat.php"><img class="nav-icon" src="./images/components/comment.svg" alt=""><a class="menu_item" href="chat.php">Berichten</a></a></li>
+            <li><a href="settings.php"><img class="nav-icon" src="./images/components/settings.svg" alt=""><a class="menu_item" href="settings.php">Instellingen</a></a></li>
         </ul>
     </div>
     

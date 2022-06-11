@@ -5,14 +5,17 @@
     --lightBlue: #AADEFB;
     --lightGray: #707070;
     --grayBlue: #364954;
+    --light : #c8dbe6 ;
+    --lighter : #e0e8ec ;
     --accentBlue: #9BA6D4;
-    --backgroundGray: #FCFCFC;
+    --backgroundGray: #f3f6f7;
     --searchBlue: #9BB6C3;
 }
 
+
 body {
     background-color: var(--backgroundGray);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: brandon-grotesque, sans-serif;
 }
 
 /* ------------- NAV ------------- */
@@ -64,9 +67,9 @@ header {
 .menu_item {
     text-decoration: none;
     color: var(--darkBlue);
-    font-size: 1.5em;
-    font-weight: bold;
-    
+    font-size: 1.6em;
+
+    font-family: korolev-condensed, sans-serif;
 }
 
 .menu_items li {
@@ -77,6 +80,11 @@ header {
 .menu_items {
     border-bottom: 1px solid var(--grayBlue);
     padding-bottom: 5em;
+}
+
+.question-icon {
+    width: 1em;
+    margin-right: 1em;
 }
 
 .posterContainer {
@@ -111,6 +119,11 @@ header {
     font-size: 1.1em;
 }
 
+.nav-icon {
+    width: 2em;
+    filter: invert(11%) sepia(36%) saturate(6528%) hue-rotate(229deg) brightness(112%) contrast(119%);
+    margin-right: 1em;
+}
 /* ------------- IMAGE SIZES ------------- */
 
 .profilepicture_small {
@@ -160,7 +173,7 @@ header {
 
 .post {
     padding: 1em 1em;
-    border: 1px solid var(--grayBlue);
+    border: 1px solid var(--searchBlue);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     background-color: white;
@@ -174,13 +187,15 @@ header {
 }
 
 .post_title {
-    font-size: 1.6em;
+    font-size: 1.7em;
     font-weight: bold;
     padding: 0.5em 0;
+    font-family: futura-pt, sans-serif;
 }
 
 .post_description {
-    font-size: 1em;
+    font-size: 1.05em;
+    font-family: expressway, sans-serif;
     margin: 0;
 }
 
@@ -320,27 +335,33 @@ header {
 /* ------------- CATEGORY ------------- */
 
 .category_items {
-    border: 1px solid var(--grayBlue);
+    border: 1px solid var(--searchBlue);
     padding-bottom: 5em;
     border-radius: 3px;
-    background-color: white;
+    background-color: var(--lighter);
 }
 
 .category_items li {
     list-style-type: none;
-    padding: 1.2em 1em;
+    padding: 1.1em 1em;
     border-bottom: 1px solid var(--grayBlue);
 }
 
 .category_btn {
     border: none;
-    background-color: white;
+    background-color: var(--lighter);
+    color: var(--grayBlue);
+    font-weight: bold;
+    font-size: 1em;
+    font-family: futura-pt, sans-serif;
 }
 
 .category_title {
     color: var(--darkBlue);
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: bold;
+    background-color: white;
+    font-family: korolev-condensed, sans-serif;
 }
 
 /* ------------- USER PROFILE ------------- */
@@ -359,9 +380,10 @@ header {
 }
 
 .username_title {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
     color: var(--appleBlue);
+    font-family: futura-pt, sans-serif;
 }
 
 .updated_when {
@@ -386,11 +408,11 @@ header {
 /* ------------- INDEX ------------- */
 
 .index_add{
-    border: 1px solid var(--grayBlue);
+    border: 1px solid var(--searchBlue);
     margin-bottom: 1em;
     padding: 0.5em;
     border-radius: 3px;
-    background-color: white;
+    background-color: var(--light);
 }
 
 .make_post{
@@ -400,27 +422,29 @@ header {
 }
 
 .make_post a {
-    color: var(--accentBlue);
+    color: var(--grayBlue);
     font-weight: bold;
+    font-family: korolev, sans-serif;
+    font-size: 1em;
 }
 
 .make_post_border {
-    border-right: 1px solid var(--grayBlue);
+    border-right: 1px solid var(--appleBlue);
 }
 
 .index_post_button {
     text-align: center;
     padding: 0.5em;
-    border: 1px solid var(--grayBlue);
     border-radius: 50px;
     margin: 0.5em;
-    color: var(--accentBlue);
-    font-weight: bold;
-    font-size: 1.1em;
+    color: var(--grayBlue);
+    font-size: 1.3em;
+    background-color: white;
+    font-family: korolev-condensed, sans-serif;
 }
 
 .post_bottom {
-    border: 1px solid black;
+    border: 1px solid var(--searchBlue);
     border-top: none;
     margin-bottom: 2em;
     padding: 0.5em;
@@ -428,6 +452,7 @@ header {
     justify-content: end;
     border-bottom-left-radius: 3px ;
     border-bottom-right-radius: 3px ;
+    background-color: white;
 }
 
 /* ------------- MAKE POST ------------- */
@@ -454,7 +479,11 @@ header {
 
 
 .uploadPicture{
-    padding: 1em 0;
+    margin: 1em 0;
+    border: 2px solid var(--searchBlue);
+    border-radius: 10px;
+    padding: 0.5em;
+    background-color: white;
 }
 
 
