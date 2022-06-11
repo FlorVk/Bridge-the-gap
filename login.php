@@ -30,6 +30,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
     <div class="main_login">
@@ -43,8 +44,8 @@
         <div class="block2_login">
             <form class="form_login" action="" method="post">
 
-                <h1 class="title">Login</h1>
-                <p>Sluit je aan bij duizenden andere gebruikers om je verhalen en vaardigheden te delen  </p>
+                <h1 class="title_big">Login</h1>
+                <p class="login_p">Sluit je aan bij duizenden andere gebruikers om je verhalen en vaardigheden te delen  </p>
 
                 <div>
                     <input class="inputField login_field" type="submit" name="loginGoogle" value="Login met Google">
@@ -71,7 +72,7 @@
 
                 <button class="button" type="submit">Log in</button>
                 <div class="link_register">
-                <div>
+                    <div>
                             <p>Heb je nog geen account?</p>
                             <p class="span_bottom">Wachtwoord vergeten?</p>
                     </div>

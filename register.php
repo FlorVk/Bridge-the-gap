@@ -39,6 +39,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
 
@@ -52,9 +53,9 @@
         <div class="block2_login">
             <form class="form_login" action="" method="post">
 
-                <h1 class="title">Maak een account aan</h1>
+                <h1 class="title_big">Maak een account aan</h1>
 
-                <p>Sluit je aan bij duizenden andere gebruikers om je verhalen en vaardigheden te delen  </p>
+                <p class="login_p">Sluit je aan bij duizenden andere gebruikers om je verhalen en vaardigheden te delen  </p>
 
                 <div>
                     <input class="inputField login_field" type="submit" name="loginGoogle" value="Login met Google">
@@ -90,14 +91,14 @@
 
                 </div>
                 
-                <div>
-                    <div>
-                        <input type="radio" name="senior" value="Senior">
-                        <label for="">Ik registreer me als 65-plusser</label>
-                    </div>
+                <div class="radio_buttons">
                     <div>
                         <input type="radio" name="senior" value="Junior">
-                        <label for="">Ik ben geen 65-plusser</label>
+                        <label for="">Ik ben een cool cat <span class="span_login">( leeftijden van 14 tot 30 jaar)</span></label>
+                    </div>
+                    <div>
+                        <input type="radio" name="senior" value="Senior">
+                        <label for="">Ik ben een trotse zwaan <span class="span_login">( leeftijden over de 30 jaar)</span></label>
                     </div>
                 </div>
 
