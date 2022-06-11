@@ -1,6 +1,4 @@
-<nav>
-
-    <div class="nav_top">
+ <div class="footer">
 
         <a href="index.php"><img class="logo_small" src="./images/components/logo.png" alt="logo Bridge The Gap"></a>
 
@@ -10,7 +8,3 @@
         </form>
 
     </div>
-
-    
-
-</nav>

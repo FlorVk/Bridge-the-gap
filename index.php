@@ -117,6 +117,7 @@ $sessionId = $_SESSION['id'];
             <?php endif; ?>
 
             <?php if (!isset($_GET['search']) && !empty($allPosts)) : ?>
+                <p class="links_title">Zie meer posts:</p>
             <div class="pages">
                 <?php for ($pages = 1; $pages <= $total_pages; $pages++) : ?>
                     <a href='<?php echo "?page=$pages"; ?>' class="links"><?php echo $pages; ?></a>
@@ -147,6 +148,10 @@ $sessionId = $_SESSION['id'];
         </div>
 
     </div>
+
+    <footer>
+        <?php include('footer.php'); ?>
+    </footer>
 
     
 </body>

@@ -100,17 +100,22 @@ $allPosts = Post::getPostsByUserId($id);
                                                         <?php endif; ?>
                                                 </div> 
                                                 </div>
+                                                <a href="detailpost.php?id=<?php echo $p['id'] ?>">
+                                                    <p class="post_title"><?php echo $p['title']; ?></p>
+                                                    <p class="post_description"><?php echo $p['description']; ?></p>
+                                                </a>
                                                 
-                                                <p class="post_title"><?php echo $p['title']; ?></p>
-                                                <p class="post_description"><?php echo $p['description']; ?></p>
                                             </div>
                                     </a>
                                             
 
                                             <?php if(isset($p['img_path'])) : ?>
+                                                <a href="detailpost.php?id=<?php echo $p['id'] ?>">
                                                 <div class="post_content_image">
                                                     <img class="postpicture_medium" src="images/postpictures/<?php echo $p['img_path']; ?>" alt="Post picture">
-                                                </div> 
+                                                </div>
+                                            </a>
+                                             
                                             <?php endif; ?>
                                     </div>    
                         </div>
