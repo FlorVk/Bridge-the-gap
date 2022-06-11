@@ -302,6 +302,17 @@ header {
     margin: 1em 0 0 0;
 }
 
+.btn_hollow_small {
+    border-radius: 5px;
+    border: #F47C2C 3px solid;
+    padding: 0.4em 1em;
+    margin: 1em 0 0 0;
+    background-color: #F47C2C;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
 .button{
     border-radius: 5px;
     border: #F47C2C 3px solid;
@@ -448,6 +459,11 @@ header {
     padding-top: 0.5em;
 }
 
+.radio_buttons {
+    padding: 1em 0;
+    font-size: 1.1em;
+}
+
 /* ------------- INDEX ------------- */
 
 .index_add{
@@ -456,6 +472,11 @@ header {
     padding: 0.5em;
     border-radius: 3px;
     background-color: var(--light);
+}
+
+.no_posts {
+    margin-bottom: 17em;
+    text-align: center;
 }
 
 .make_post{
@@ -503,7 +524,8 @@ header {
 
 .title{
     color: var(--darkBlue);
-    font-size: 1.6em;
+    font-family: korolev-condensed, sans-serif;
+    font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 0.5em;
 }
@@ -517,7 +539,8 @@ header {
 
 .title_appleBlue_settings {
     color: var(--appleBlue);
-    font-size: 1.2em;
+    font-family: futura-pt, sans-serif;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
@@ -530,10 +553,15 @@ header {
     background-color: white;
 }
 
+.updatePicture {
+    margin: 1em 0;
+    padding: 0.5em;
+}
+
 
 
 .updateRight {
-    margin: 1em;
+    margin: 1em 2em;
 }
 
 /* ------------- INPUT FIELDS ------------- */
@@ -591,6 +619,7 @@ header {
     padding-top: 1em;
 }
 
+
 .login_field {
     height: 40px;
 }
@@ -626,6 +655,11 @@ header {
     flex-flow: column nowrap;
     width: 100%;
     margin-left: 1em;
+    margin-right: 1em;
+}
+
+.update_border {
+    border-left: 1px solid var(--grayBlue);
 }
 
 .settings_item {
@@ -634,6 +668,18 @@ header {
     justify-content: space-between;
     padding: 1em 0;
     border-bottom: 1px solid var(--grayBlue);
+}
+
+.settings_link {
+    color: var(--darkBlue);
+    font-family: futura-pt, sans-serif;
+    font-size: 1.1em;
+}
+
+.settings_title {
+    color: var(--appleBlue);
+    font-family: futura-pt, sans-serif;
+    font-size: 1em;
 }
 
 /* ------------- FRIENDLIST ------------- */

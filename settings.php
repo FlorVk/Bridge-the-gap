@@ -43,26 +43,26 @@
                 <div class="settings_container">
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Profiel gegevens</h2>
-                        <a class="btn_hollow" href="usersettings.php">Update je gegevens</a>
+                        <a class="btn_hollow_small" href="usersettings.php">Update je gegevens</a>
                     </div>
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Wachtwoord</h2>
-                        <a href="usersettings.php">Wijzig je wachtwoord</a>
+                        <a class="settings_link" href="usersettings.php">Wijzig je wachtwoord</a>
                     </div>
 
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Login beveiliging</h2>
-                        <a href="usersettings.php">Vereis email comfirmatie</a>
+                        <a class="settings_link" href="usersettings.php">Vereis email comfirmatie</a>
                     </div>
 
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Logout</h2>
-                        <a class="btn_hollow" href="logout.php">uitloggen op alle browsers</a>
+                        <a class="btn_hollow_small" href="logout.php">uitloggen op alle browsers</a>
                     </div>
 
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Verwijder account</h2>
-                        <a class="btn_hollow" href="deleteuser.php">Verwijder je account</a>
+                        <a class="btn_hollow_small" href="deleteuser.php">Verwijder je account</a>
                     </div>
                 </div>
                 

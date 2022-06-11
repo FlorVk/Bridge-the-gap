@@ -112,7 +112,7 @@ $sessionId = $_SESSION['id'];
 
             <?php if(empty($allPosts)): ?>
                 <div>
-                    <h1 class="title">Er zijn nog geen posts!</h1>
+                    <h1 class="title no_posts">Er zijn nog geen posts in deze categorie!</h1>
                 </div>
             <?php endif; ?>
 

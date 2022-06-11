@@ -2,9 +2,11 @@
 
         <a href="index.php"><img class="logo_small" src="./images/components/logo.png" alt="logo Bridge The Gap"></a>
 
-        <form class="nav_search" action="index.php" method="get">
-            <input class="search_nav" type="text" name="search" placeholder="Zoeken">
-
-        </form>
+        <ul class="">
+            <li><a href="index.php"><a class="" href="index.php">Home</a></a></li>
+            <li><a href="call.php"><a class="" href="call.php">Bellen</a></a></li>
+            <li><a href="chat.php"><a class="" href="chat.php">Berichten</a></a></li>
+            <li><a href="settings.php"><a class="" href="settings.php">Instellingen</a></a></li>
+        </ul>
 
     </div>

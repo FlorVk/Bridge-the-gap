@@ -105,31 +105,31 @@
                 <form action="" method="post" class="profile_info">
                             <div class="updateName">
                                 <div> 
-                                    <label>Voornaam</label><br>
+                                    <label class="settings_title">Voornaam</label><br>
                                     <input class="updateFirstName" type="text" name="updateFirstName" value="<?php echo htmlspecialchars($userData['firstname']); ?>">
                                 </div>
                                 <div>
-                                    <label>Achternaam</label><br>
+                                    <label class="settings_title">Achternaam</label><br>
                                     <input class="updateProfileInput inputField" type="text" name="updateLastName" value="<?php echo htmlspecialchars($userData['lastname']); ?>">
                                 </div>
                             </div>
                             <div>
-                                <label>E-mail addres</label><br>
+                                <label class="settings_title">E-mail addres</label><br>
                                 <input class="updateProfileInput inputField" type="email" name="updateEmail" value="<?php echo htmlspecialchars($userData['email']); ?>" readonly>
                             </div>
                             <div >
-                                <label>Biografie</label><br>
+                                <label class="settings_title">Biografie</label><br>
                                 <input class="updateProfileInput inputField inputDescription" type="text" name="updateBio" value="<?php echo htmlspecialchars($userData['bio']); ?>">
                             </div>
 
-                            <div>
+                            <div class="radio_buttons">
                                 <div>
                                     <input type="radio" name="updateSenior" value="Senior">
-                                    <label for="">Ik registreer me als 65-plusser</label>
+                                    <label for="">Ik ben een cool cat <span class="span_login">( leeftijden van 14 tot 30 jaar)</span></label>
                                 </div>
                                 <div>
                                     <input type="radio" name="updateSenior" value="Junior">
-                                    <label for="">Ik ben geen 65-plusser</label>
+                                    <label for="">Ik ben een trotse zwaan <span class="span_login">( leeftijden over de 30 jaar)</span></label>
                                 </div>
                             </div>
                             
@@ -138,11 +138,11 @@
             </div>
         </div>
 
-        <div class="block3_update">
+        <div class="block3_update update_border">
             <div class="block3_right updateRight">
             <form action="" method="POST" enctype="multipart/form-data">
                     <h1 class="title">Verander je foto</h1>
-                    <div class="uploadPicture">
+                    <div class="updatePicture">
                         <img class="profilepicture_large" src="images/profilepictures/<?php echo $userData['profilepicture']; ?>" alt="Profile picture">
                     </div>
                     <input type="file" id="userImage" name="userImage" value=""><br>
