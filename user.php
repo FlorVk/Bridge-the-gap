@@ -16,6 +16,8 @@ $fullname = $firstName . " " . $lastName;
 $id = $_GET['id'];
 $allPosts = Post::getPostsByUserId($id);
 
+$title = User::getTitleByUserId($userId);
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,10 +51,26 @@ $allPosts = Post::getPostsByUserId($id);
                         <h1 class="username_title username_user"><?php echo $fullname ?>
                         <p class="user_senior"><?php echo $userData['senior']; ?></p> </h1>
                     </div>
+                    <?php if(!empty($userData['bio'])): ?>
+                        <div class="user__information">
+                            <p class="user__bio"><?php echo $userData['bio']; ?></p>
+                        </div>
+                        <?php endif; ?>
 
-                    <div class="user__information">
-                        <p class="user__bio"><?php echo $userData['bio']; ?></p>
-                    </div>
+                    <?php if(!empty($title)): ?>
+                        <div class="user_title_box">
+                            <img class="badge_medium" src="./images/badges/junior/<?php echo $title['badge'] ?>" alt="">
+                            <p class="user_title"><?php echo $title['title_name']; ?></p>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if($sessionId == $id && empty($title)) : ?>
+                        <div class="user_title_empty">
+                            <a class="button" href="title.php">Kleur je profiel op en kies een titel</a>
+                        </div>
+                        
+                    <?php endif; ?>
+                    
 
                     <?php if($sessionId == $id) : ?>
                         <div class="user__self user_buttons">
@@ -119,7 +137,15 @@ $allPosts = Post::getPostsByUserId($id);
                                             <?php endif; ?>
                                     </div>    
                         </div>
+                        
                     <?php endforeach; ?>
+
+                    <?php if(empty($allPosts)): ?>
+                    <div>
+                        <h1 class="title no_posts"><?php echo $userData['firstname']; ?> heeft nog geen posts!</h1>
+                    </div>
+                <?php endif; ?>
+                    
                 </div>
             </div>
 

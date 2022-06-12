@@ -155,7 +155,7 @@
             $conn = Db::getInstance();
 
             // pagination 
-            $limit = 6;
+            $limit = 20;
             $offset = ($page - 1) * $limit;
 
 

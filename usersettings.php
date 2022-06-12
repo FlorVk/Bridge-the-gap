@@ -124,12 +124,16 @@
 
                             <div class="radio_buttons">
                                 <div>
-                                    <input type="radio" name="updateSenior" value="Senior">
-                                    <label for="">Ik ben een cool cat <span class="span_login">( leeftijden van 14 tot 30 jaar)</span></label>
+                                    <input type="radio" name="updateSenior" value="Junior">
+                                    <label for="">Ik ben een Junior <span class="span_login">( leeftijden van 14 tot 25 jaar)</span></label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="updateSenior" value="Junior">
-                                    <label for="">Ik ben een trotse zwaan <span class="span_login">( leeftijden over de 30 jaar)</span></label>
+                                    <input type="radio" name="updateSenior" value="Medior">
+                                    <label for="">Ik ben een Medior <span class="span_login">( leeftijden over de 25 jaar)</span></label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="updateSenior" value="Senior">
+                                    <label for="">Ik ben een Senior<span class="span_login">( leeftijden over de 55 jaar)</span></label>
                                 </div>
                             </div>
                             

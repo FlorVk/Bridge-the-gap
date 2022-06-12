@@ -11,6 +11,7 @@
         private $senior;
         private $userId;
         private $bio;
+        private $title;
     
 
         public function getFirstname()
@@ -88,12 +89,22 @@
             return $this->senior;
         }
 
-        public static function checkSenior(){
+        public function setTitle($title) {
+            $this->title = $title;
+            return $this;
+        }
+        
+        public function getTitle() {
+            return $this->title;
+        }
+
+        public static function checkSenior($id){
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT senior FROM users");
+            $statement = $conn->prepare("SELECT senior FROM users WHERE `id` = :id;");
+            $statement->bindValue(':id', $id);
             $statement->execute();
             $result = $statement->fetch();
-            if ($result = 1) {
+            if ($result === "Senior") {
                     echo "Junior";
             } else {
                     echo "Senior";
@@ -188,6 +199,8 @@
     
             session_start();
             $_SESSION['id'] = $sessionId;
+
+            header('location: index.php');
         }
 
         public function updateProfilePicture($profilepicture, $userId)
@@ -216,6 +229,16 @@
 
         }
 
+        public function updateTitle()
+        {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare("UPDATE `users` SET `title` = :title WHERE `id` = :id;");
+                $statement->bindvalue(':title', $this->title);
+                $statement->bindvalue(':id', $this->userId);
+                return $statement->execute();
+
+        }
+
         public static function deleteUser($sessionId, $password) { 
             $conn = Db::getInstance();
             $sql = "SELECT * FROM `users` WHERE `id` = '$sessionId';";
@@ -234,6 +257,27 @@
             
              
  }
+
+        public static function getTitleByUserId($id) {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('SELECT * FROM users INNER JOIN titles ON titles.id = users.title WHERE users.id = :id;');
+            $statement->bindValue(":id", $id);
+            $statement->execute();
+            $result = $statement->fetch();
+            return $result;
+        }
+
+        public static function getTitleIdFromId($id)
+        {
+            $conn = Db::getInstance();
+            $sql = "SELECT title FROM `users` WHERE `id` = '$id';";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
+
+    
 
 ?>

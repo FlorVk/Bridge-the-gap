@@ -75,7 +75,8 @@ require_once("bootstrap.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bridge The Gap</title>
     <link rel="stylesheet" href="styles/reset.css"> 
-    <link rel="stylesheet" href="styles/style.css"> 
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
     <header>
@@ -103,7 +104,7 @@ require_once("bootstrap.php");
                     <div class="inputPost">
                         <h2 class="title_medium" for="">Wil je de vraag aanpassen?</h2>
                         <input type="text" placeholder="Titel van je vraag" name="updateTitle" value="<?php echo htmlspecialchars($postData['title']); ?>" class="inputField inputTitle"><br>
-                        <textarea class="inputField inputDescription" id="updateDescription" name="updateDescription" placeholder="Stel hier je vraag"><?php echo htmlspecialchars($postData['description']); ?></textarea>
+                        <textarea class="inputField inputDescription " id="updateDescription" name="updateDescription" placeholder="Stel hier je vraag"><?php echo htmlspecialchars($postData['description']); ?></textarea>
                     </div>
 
                     <div class="addCategory">
@@ -135,8 +136,8 @@ require_once("bootstrap.php");
             
         </div>
 
-        <div class="block3_update">
-            <div class="block3_right updateRight">
+        <div class="block3_update update_border">
+            <div class="block3_right updateRight ">
                 <h1 class="title">Afbeelding</h1>
 
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -154,7 +155,7 @@ require_once("bootstrap.php");
                     
                 </form>
 
-                <div class="user_self">
+                <div class="user_self delete_post">
                     <a class="btn_hollow" href="deletepost.php?id=<?php echo $postData['id'] ?>"> Verwijder post!</a>
                 </div>
             </div>

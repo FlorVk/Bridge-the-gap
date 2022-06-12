@@ -51,8 +51,8 @@
                     </div>
 
                     <div class="settings_item">
-                        <h2 class="title_appleBlue_settings">Login beveiliging</h2>
-                        <a class="settings_link" href="usersettings.php">Vereis email comfirmatie</a>
+                        <h2 class="title_appleBlue_settings">Profiel titel</h2>
+                        <a class="settings_link" href="title.php">Verander je titel</a>
                     </div>
 
                     <div class="settings_item">
