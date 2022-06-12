@@ -34,7 +34,14 @@
                             <p class="icon">></p>
                         </a>
                     </div>
+                    
                 <?php endforeach; ?>
+                <?php if(empty($Allfriends)): ?>
+                    <div>
+                        <h1 class="title_medium">Helemaal leeg...</h1>
+                    </div>
+                <?php endif; ?>
+                
             </div>
         <?php endif; ?>
 
@@ -52,6 +59,12 @@
                         </a>
                     </div>
                 <?php endforeach; ?>
+
+                <?php if(empty($allUsers)): ?>
+                    <div>
+                        <h1 class="title_medium">Sorry! Geen gebruikers gevonden</h1>
+                    </div>
+                <?php endif; ?>
             </div>
             
             

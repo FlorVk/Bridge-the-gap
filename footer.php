@@ -2,11 +2,11 @@
 
         <a href="index.php"><img class="logo_small" src="./images/components/logo.png" alt="logo Bridge The Gap"></a>
 
-        <ul class="">
-            <li><a href="index.php"><a class="" href="index.php">Home</a></a></li>
-            <li><a href="call.php"><a class="" href="call.php">Bellen</a></a></li>
-            <li><a href="chat.php"><a class="" href="chat.php">Berichten</a></a></li>
-            <li><a href="settings.php"><a class="" href="settings.php">Instellingen</a></a></li>
+        <ul class="footer_li">
+            <li><a class="footer_link" href="index.php">Home</a></li>
+            <li><a class="footer_link" href="call.php">Bellen</a></li>
+            <li><a class="footer_link" href="chat.php">Berichten</a></li>
+            <li><a class="footer_link" href="settings.php">Instellingen</a></li>
         </ul>
 
     </div>

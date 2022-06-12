@@ -423,7 +423,7 @@ header {
 }
 
 .category2 {
-    background-color: var(--light);
+    background-color: var(--lighter);
     padding: 0.5em;
     margin: 0.5em 2px;
     border-radius: 10px;
@@ -582,7 +582,7 @@ header {
 }
 
 .title_medium {
-    color: var(--darkBlue);
+    color: var(--appleBlue);
     font-size: 1.2em;
     font-weight: bold;
     padding-bottom: 0.5em;
@@ -867,6 +867,8 @@ header {
     padding: 0.5em 0;
 }
 
+/* ------------- FOOTER ------------- */
+
 .footer {
     height: 100px;
     display: flex;
@@ -875,6 +877,14 @@ header {
     padding: 0.5em 15em;
     background-color: white;
     box-shadow: 0px 0px 10px #36495451;
+}
+
+.footer_li {
+    display: flex;
+}
+
+.footer_link {
+    padding: 0 1em;
 }
 
 /* ------------- TITLES AND BADGES ------------- */
