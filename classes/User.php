@@ -276,6 +276,15 @@
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             return $result;
         }
+
+        public static function getAllUsersSearch($filter)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM `users` WHERE `firstname` LIKE '%$filter%' OR  `lastname` LIKE '%$filter%';");
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
     }
 
     
