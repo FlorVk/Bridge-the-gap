@@ -8,6 +8,23 @@
         $userData = User::getUserFromId($sessionId);
     }
 
+    $category2 = $_GET['category'];
+
+    switch ($category2) {
+        case "Oplossing":
+            $title = "Wat is je oplossing op iets?";
+            $category = "oplossing" ;
+            break;
+        case "Vraag":
+            $title = "Wat is je vraag?";
+            $category = "vraag" ;
+            break;
+        case "Bericht":
+            $title = "Wat wil je plaatsen?";
+            $category = "bericht" ;
+            break;
+    }
+
     if(!empty($_POST)){
         try {
             $post = new Post();
@@ -15,6 +32,7 @@
             $post->setDescription($_POST['description']);
             $post->setUserId($userData['id']);
             $post->setTimePosted(date("Y-m-d H:i:s"));
+            $post->setCategory2($_GET['category']); 
 
             if (isset($_FILES['postImage'])) {
                 $imageName = $_FILES['postImage']['name'];
@@ -70,7 +88,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bridge the gap</title>
     <link rel="stylesheet" href="styles/reset.css"> 
-    <link rel="stylesheet" href="styles/style.css">  
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">
 </head>
 <body>
     <header>
@@ -98,7 +117,7 @@
                 </div>
                 
                 <div class="inputPost">
-                    <h2 class="title_medium" for="">Wat is je vraag?</h2>
+                    <h2 class="title_medium" for=""><?php echo $title?></h2>
                     <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField inputTitle"><br>
                     <textarea class="inputField inputDescription" id="description" name="description" placeholder="Stel hier je vraag"></textarea>
                     </div>
@@ -109,7 +128,7 @@
                 </div>
 
                 <div class="addCategory">
-                    <h2 class="title_medium">Wil je je post een categorie geven? </h2>
+                    <h2 class="title_medium">Wil je je <?php echo $category ?> een categorie geven? </h2>
                         <div>
                             <input type="radio" name="category" value="Algemeen">
                             <label for="">Algemeen</label>
@@ -135,6 +154,7 @@
 
         <div class="block3">
             <div class="block3_right">
+
             </div>
         </div>
 

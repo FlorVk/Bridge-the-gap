@@ -10,6 +10,7 @@
         private $timePosted;
         private $category;
         private $imgPath;
+        private $category2;
     
 
         public function getTitle()
@@ -78,6 +79,15 @@
             return $this->category;
         }
 
+        public function setCategory2($category2) {
+            $this->category2 = $category2;
+            return $this;
+        }
+        
+        public function getCategory2() {
+            return $this->category2;
+        }
+
         public function setImage($imgPath) {
             $this->imgPath = $imgPath;
             return $this;
@@ -92,12 +102,13 @@
         public function uploadPost()
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO `posts` (`title`, `description`, `user_id`, `time_posted`, `img_path`, `category`) VALUES (:title, :description, :user_id, :time_posted, :imgPath, :category)");
+            $statement = $conn->prepare("INSERT INTO `posts` (`title`, `description`, `user_id`, `time_posted`, `img_path`, `category`, `category2`) VALUES (:title, :description, :user_id, :time_posted, :imgPath, :category, :category2)");
             $statement->bindValue(':title', $this->title);
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':user_id', $this->userId);
             $statement->bindValue(':imgPath', $this->imgPath);
             $statement->bindValue(':category', $this->category);
+            $statement->bindValue(':category2', $this->category2);
             $statement->bindValue(':time_posted', $this->timePosted);
             $statement->execute();
 
@@ -186,6 +197,56 @@
 
             // totaal aantal pagina's nemen
             $sql = "SELECT * FROM `posts` WHERE `category` LIKE '%$category%' ";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
+        public static function getAllPostsLimitCategory2($category2)
+        {
+            global $page;
+            global $total_pages;
+
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $conn = Db::getInstance();
+
+            // pagination 
+            $limit = 6;
+            $offset = ($page - 1) * $limit;
+
+
+            // totaal aantal pagina's nemen
+            $sql = "SELECT * FROM `posts` WHERE `category2` LIKE '%$category2%' ";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
+        public static function getAllPostsLimitCategories($category, $category2)
+        {
+            global $page;
+            global $total_pages;
+
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $conn = Db::getInstance();
+
+            // pagination 
+            $limit = 6;
+            $offset = ($page - 1) * $limit;
+
+
+            // totaal aantal pagina's nemen
+            $sql = "SELECT * FROM `posts` WHERE `category` LIKE '%$category%' AND `category2` LIKE '%$category2%' ";
             $statement = $conn->prepare($sql);
             $statement->execute();
             $result = $statement->fetchAll();

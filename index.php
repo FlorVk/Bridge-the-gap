@@ -17,6 +17,11 @@ if (isset($_GET['category'])) {
     $allPosts = $post->getAllPostsLimitCategory($_GET['category']); 
 }
 
+if (isset($_GET['category2'])) {
+    $post = new Post;
+    $allPosts = $post->getAllPostsLimitCategory($_GET['category2']); 
+}
+
 if (isset($_GET['category']) && $_GET['category'] === 'Alles') {
     $post = new Post;
     $allPosts = $post->getAllPostsLimit(); 
@@ -55,9 +60,9 @@ $sessionId = $_SESSION['id'];
             <div class="index_add"> 
                 <p class="index_post_button">Wat will je vragen?</p>
                 <div class="make_post">
-                    <a class="make_post_border" href="uploadpost.php"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
-                    <a class="make_post_border" href="uploadpost.php"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Antwoord</a>
-                    <a href="uploadpost.php"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
+                    <a class="make_post_border" href="uploadpost.php?category=Vraag"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
+                    <a class="make_post_border" href="uploadpost.php?category=Oplossing"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Oplossing</a>
+                    <a href="uploadpost.php?category=Bericht"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
                 </div>
             </div>
             <?php foreach ($allPosts as $p) : ?>
@@ -136,6 +141,7 @@ $sessionId = $_SESSION['id'];
                 <form class="category" action="" method="get">
                     <ul class="category_items">
                         <li class="category_title">Categorieën</li>
+                        <li><input class="category_btn category2" type="submit" name="category2" value="Vraag"><input class="category_btn category2" type="submit" name="category2" value="Antwoord"><input class="category_btn category2" type="submit" name="category2" value="Bericht"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Alles"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Algemeen"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Technologie"></li>

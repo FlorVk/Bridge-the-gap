@@ -345,7 +345,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10em;
+    padding-bottom: 12em;
 }
 
 .links_title {
@@ -399,7 +399,7 @@ header {
 
 .category_items li {
     list-style-type: none;
-    padding: 1.1em 1em;
+    
     border-bottom: 1px solid var(--searchBlue);
 }
 
@@ -409,6 +409,7 @@ header {
     color: var(--grayBlue);
     font-weight: bold;
     font-size: 1em;
+    padding: 1.1em 1em;
     font-family: futura-pt, sans-serif;
 }
 
@@ -417,7 +418,15 @@ header {
     font-size: 1.4em;
     font-weight: bold;
     background-color: var(--light);
+    padding: 1.1em 1em;
     font-family: korolev-condensed, sans-serif;
+}
+
+.category2 {
+    background-color: var(--light);
+    padding: 0.5em;
+    margin: 0.5em 2px;
+    border-radius: 10px;
 }
 
 /* ------------- USER PROFILE ------------- */
@@ -859,7 +868,7 @@ header {
 }
 
 .footer {
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: start;
