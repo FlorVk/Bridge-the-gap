@@ -5,10 +5,10 @@
     --lightBlue: #AADEFB;
     --lightGray: #707070;
     --grayBlue: #364954;
-    --light : #c8dbe6 ;
+    --light : #8fd2d4 ;
     --lighter : #e4ebef ;
     --accentBlue: #9BA6D4;
-    --backgroundGray: #f3f6f7;
+    --backgroundGray: #cedfe6;
     --searchBlue: #9BB6C3;
 }
 
@@ -22,22 +22,29 @@ body {
 
 header {
     position: sticky;
-  top: 0;
+    top: 0;
 }
 
 .nav_left {
     display:flex;
     flex-flow: column nowrap;
-    
+    background-color: white;
+    padding: 1em;
+    padding-bottom: 10em;
+    border-radius: 15px;
 }
 
 .nav_top {
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding: 0.5em 15em;
-    background-color: white;
-    box-shadow: 0px 0px 10px #36495451;
+    justify-content: space-between;
+    padding: 0.5em 5em;
+    background-color: var(--backgroundGray);
+    z-index: 5;
+}
+
+.user_details_nav {
+    width: 250px;
 }
 
 .nav_search{
@@ -112,6 +119,8 @@ header {
     background-position: 5px 5px;
     background-repeat: no-repeat;
     padding-left: 40px;
+    width: 450px;
+    border-radius: 5px;
 }
 
 .search_nav:focus {
@@ -131,6 +140,43 @@ header {
     filter: invert(11%) sepia(36%) saturate(6528%) hue-rotate(229deg) brightness(112%) contrast(119%);
     margin-right: 1em;
 }
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+
+.dropdown:hover .dropdown_menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_item {
+    padding: 1.5em 0.5em;
+    text-decoration: none;
+    color: var(--grayBlue);
+    font-weight: bold;
+    font-size: 1em;
+    padding: 1.1em 1em;
+    font-family: futura-pt, sans-serif;
+}
+
+.dropdown_item:hover{
+    background-color: var(--backgroundGray);
+    color: var(--buttonOrange);
+}
+
+.dropdown{
+    margin: 0 0.5em;
+}
+
+
+
 /* ------------- IMAGE SIZES ------------- */
 
 .profilepicture_small {
@@ -179,10 +225,10 @@ header {
 /* ------------- POSTS ------------- */
 
 .post {
-    padding: 1em 1em;
-    border: 1px solid var(--searchBlue);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    padding: 1.5em 1em;
+    border-bottom: 1px solid var(--searchBlue);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 10px;
     background-color: white;
     box-shadow: 0px 5px 5px #3649541a;
 }
@@ -221,6 +267,7 @@ header {
     flex-flow: row;
     justify-content: center;
     padding-top: 1em;
+    z-index: -1;
 }
 
 .main_login {
@@ -234,7 +281,7 @@ header {
 }
 
 .block1_left {
-    padding-left: 45%;
+    padding: 0 4em;
     position: sticky;
     top: 95px;
 }
@@ -276,6 +323,7 @@ header {
 
 .block3 {
     width: 30%;
+    z-index: -2;
 }
 
 .block3_friendlist {
@@ -285,7 +333,7 @@ header {
 }
 
 .block3_right {
-    padding-right: 45%;
+    padding: 0 4em;
     position: sticky;
     top: 95px;
 }
@@ -391,9 +439,9 @@ header {
 /* ------------- CATEGORY ------------- */
 
 .category_items {
-    border: 1px solid var(--searchBlue);
+    
     padding-bottom: 5em;
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: white;
 }
 
@@ -510,10 +558,9 @@ header {
 /* ------------- INDEX ------------- */
 
 .index_add{
-    border: 1px solid var(--searchBlue);
     margin-bottom: 1em;
     padding: 0.5em;
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: var(--light);
 }
 
@@ -544,23 +591,54 @@ header {
     padding: 0.5em;
     border-radius: 50px;
     margin: 0.5em;
-    color: var(--grayBlue);
+    color: var(--buttonOrange);
     font-size: 1.3em;
     background-color: white;
     font-family: korolev-condensed, sans-serif;
 }
 
 .post_bottom {
-    border: 1px solid var(--searchBlue);
+    
     border-top: none;
     margin-bottom: 2em;
-    padding: 0.5em;
+    padding: 1em;
     display: flex;
     justify-content: end;
-    border-bottom-left-radius: 3px ;
-    border-bottom-right-radius: 3px ;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px ;
     background-color: white;
     box-shadow: 0px 5px 5px #3649541a;
+}
+
+.index_input_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--appleBlue);
+    padding-bottom: 0.5em;
+}
+
+.index_post_input {
+    padding: 0.5em;
+    padding-top: 0.7em;
+    border: none;
+    width: 450px;
+    background-color: var(--light);
+}
+
+.index_post_input::placeholder {
+    color: var(--grayBlue);
+    font-size: 1.3em;
+    font-family: futura-pt, sans-serif;
+
+}
+
+.index_post_input:focus {
+    outline: none;
+}
+
+.index_post_form {
+   padding: 0 1em;
 }
 
 /* ------------- MAKE POST ------------- */

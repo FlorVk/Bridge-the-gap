@@ -23,7 +23,13 @@
             $title = "Wat wil je plaatsen?";
             $category = "bericht" ;
             break;
+        case "":
+            $title = "Wat is je vraag?";
+            $category = "vraag" ;
+            break;
     }
+
+    
 
     if(!empty($_POST)){
         try {
@@ -119,7 +125,16 @@
                 <div class="inputPost">
                     <h2 class="title_medium" for=""><?php echo $title?></h2>
                     <input type="text" placeholder="Titel van je vraag" name="title" value="" class="inputField inputTitle"><br>
-                    <textarea class="inputField inputDescription" id="description" name="description" placeholder="Stel hier je vraag"></textarea>
+                    <?php 
+                        if(isset($_GET['vraag'])){
+                            $vraag = $_GET['vraag'];
+                            echo "<textarea class='inputField inputDescription' id='description' name='description' placeholder='Stel hier je vraag'>$vraag</textarea>";
+                        }
+                        else {
+                            echo "<textarea class='inputField inputDescription' id='description' name='description' placeholder='Stel hier je vraag'></textarea>";
+                        }
+                    ?>
+                    
                     </div>
 
                 <div class="uploadPicture">

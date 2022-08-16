@@ -28,6 +28,7 @@ if (isset($_GET['category']) && $_GET['category'] === 'Alles') {
 }
 
 $sessionId = $_SESSION['id'];
+$user = User::getUserFromId($sessionId);
 
 
 
@@ -57,12 +58,22 @@ $sessionId = $_SESSION['id'];
         </div>
     
         <div class="posts block2_index">
-            <div class="index_add"> 
-                <p class="index_post_button">Wat will je vragen?</p>
+            <div class="index_add">
+                <div class="index_input_box">
+                    <a class="post_userinfo" href="user.php?id=<?php echo $user['id']?>" >
+                        <img class="profilepicture_small" src="./images/profilepictures/<?php echo $user['profilepicture'] ?>" alt="">
+                    </a>
+                    <form class="index_post_form" action="uploadpost.php" method="get">
+                        <input class="index_post_input " type="text" name="vraag" placeholder="Stel een vraag...">
+                        <input type="hidden" name="category" value="Vraag"/>
+                    </form>
+                    
+                </div>
+                
                 <div class="make_post">
-                    <a class="make_post_border" href="uploadpost.php?category=Vraag"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
-                    <a class="make_post_border" href="uploadpost.php?category=Oplossing"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Oplossing</a>
-                    <a href="uploadpost.php?category=Bericht"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
+                    <a class="index_post_button" href="uploadpost.php?category=Vraag"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
+                    <a class="index_post_button" href="uploadpost.php?category=Oplossing"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Oplossing</a>
+                    <a class="index_post_button" href="uploadpost.php?category=Bericht"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
                 </div>
             </div>
             <?php foreach ($allPosts as $p) : ?>
@@ -80,7 +91,7 @@ $sessionId = $_SESSION['id'];
                             <div>
                                 <?php if($sessionId == $p['user_id']) : ?>
                                     <div class="user_self">
-                                        <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">Update</a>
+                                        <a class="btn_hollow" href="updatepost.php?id=<?php echo $p['id']?>">...</a>
                                     </div> 
                                 <?php endif; ?>
                             </div>
@@ -141,7 +152,6 @@ $sessionId = $_SESSION['id'];
                 <form class="category" action="" method="get">
                     <ul class="category_items">
                         <li class="category_title">Categorieën</li>
-                        <li><input class="category_btn category2" type="submit" name="category2" value="Vraag"><input class="category_btn category2" type="submit" name="category2" value="Antwoord"><input class="category_btn category2" type="submit" name="category2" value="Bericht"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Alles"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Algemeen"></li>
                         <li><input class="category_btn" type="submit" name="category" value="Technologie"></li>
