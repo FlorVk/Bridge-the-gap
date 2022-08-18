@@ -47,7 +47,7 @@
                     </div>
                     <div class="settings_item">
                         <h2 class="title_appleBlue_settings">Wachtwoord</h2>
-                        <a class="settings_link" href="usersettings.php">Wijzig je wachtwoord</a>
+                        <a class="settings_link" href="changepassword.php">Wijzig je wachtwoord</a>
                     </div>
 
                     <div class="settings_item">

@@ -26,6 +26,7 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
 
 $comment = new Comment;
 $allComments = Comment::getAll($postId); 
+$allLikes = Like::getAll($postId);
 
 
 
@@ -38,7 +39,8 @@ $allComments = Comment::getAll($postId);
     <title>Post</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css">  
+    <link rel="stylesheet" href="https://use.typekit.net/lhb7fhc.css"> 
+    <script src="https://kit.fontawesome.com/b01dc45dc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -88,12 +90,29 @@ $allComments = Comment::getAll($postId);
                                 <img class="postpicture_large" src="images/postpictures/<?php echo $postData['img_path']; ?>" alt="Post picture">
                             </div> 
                         <?php endif; ?>
-                            
-                        
                     </div>
 
                     <div>
 
+                    <div class="likesContainer">
+                            <div class="post__foot__likes">
+                                <?php if(Like::isPostLiked($user['id'], $postData['id'])): ?>
+                                    <a href="#" id="btnAddLike" data-postid="<?php echo $postData['id']; ?>" data-isliked="false" data-username="<?php echo $userData['firstname']; ?>" data-userid="<?php echo $userData['id']; ?>"><img class="nav-icon" src="images/components/home.svg" alt="Number of likes" /></a>
+                                <?php else: ?>
+                                    <a href="#" id="btnAddLike" data-postid="<?php echo $postData['id']; ?>" data-isliked="true" data-username="<?php echo $userData['firstname']; ?>" data-userid="<?php echo $userData['id']; ?>"><img class="nav-icon" src="images/components/home.svg" alt="Number of likes" /></a>
+                                <?php endif; ?>
+                                <span class="likeCount"><?php echo count($allLikes); ?></span>
+                            </div>
+                            <ul class="hoverBubble">
+                                <?php foreach($allLikes as $like): ?>
+                                    <?php if($like['user_id'] == $sessionId): ?>
+                                        <li data-likeuserid="current-user"><?php echo htmlspecialchars($like['firstname']) ?></li>
+                                    <?php else: ?>
+                                        <li data-likeuserid="<?php echo $like['user_id']; ?>"><?php echo htmlspecialchars($like['firstname']); ?></li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
                         
                     <?php if($sessionId != 0) : ?>
                         <div class="post_comments">
@@ -168,11 +187,12 @@ $allComments = Comment::getAll($postId);
             //commentCount++;
             //e.querySelector('.commentCount').innerHTML = commentCount;
             }); 
-
-
-
-            
+  
     </script>
-    
+    <script>
+        document.querySelector("#btnAddComment").addEventListener("click", function() {
+           
+            }); 
+    </script>
 </body>
 </html>

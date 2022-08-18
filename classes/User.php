@@ -229,6 +229,30 @@
 
         }
 
+        public static function changeCurrentPassword($currentpassword, $newpassword, $newpassword2, $id){
+            $conn = Db::getInstance();
+                $sql = "SELECT * FROM `users` WHERE `id` = '$id';";
+                $statement = $conn->prepare($sql);
+                $statement->execute();
+                $result = $statement->fetch();
+
+                $hash = $result["password"];
+                if (password_verify($currentpassword, $hash)) {
+                        if ($newpassword == $newpassword2) {
+                                $options = [
+                                        'cost' => 12
+                                ];
+                                $password = password_hash($newpassword, PASSWORD_BCRYPT, $options);
+                                $statement2 = $conn->prepare("UPDATE `users` SET `password` = '$password' WHERE `users`.`id` = '$id';");
+                                $statement2->execute();
+                        } else {
+                                throw new Exception("Nieuw wachtwoord komt niet overeen met herhaald wachtwoord.");
+                        }
+                } else {
+                        throw new Exception("Huidig wachtwoord is incorrect");
+                }
+        }
+
         public function updateTitle()
         {
                 $conn = Db::getInstance();
