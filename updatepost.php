@@ -5,6 +5,8 @@ require_once("bootstrap.php");
         $user = new User();
         $sessionId = $_SESSION['id'];
         $userData = User::getUserFromId($sessionId);
+    } else {
+        header('location: login.php');
     }
 
     $post = new Post();

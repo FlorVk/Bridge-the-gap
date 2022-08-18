@@ -1,6 +1,14 @@
 <?php
 require_once("bootstrap.php");
+
 session_start();
+    if(!isset($_SESSION['id'])) {
+        header('location: login.php');
+    } else{
+        $user = new User();
+        $sessionId = $_SESSION['id'];
+        $userData = User::getUserFromId($sessionId);
+    }
 
 $post = new Post();
 $id = $_GET['id'];

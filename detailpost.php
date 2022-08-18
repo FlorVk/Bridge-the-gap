@@ -8,9 +8,12 @@ $postId = $_GET['id'];
 
 $postData = Post::getPost($postId);
 
-$sessionId = $_SESSION['id'];
+$sessionId = 0;
 
-$userData = User::getUserFromId($sessionId);
+if(isset($_SESSION['id'])){
+    $sessionId = $_SESSION['id'];
+    $user = User::getUserFromId($sessionId);
+}
 
 $id = $postData['user_id'];
 
@@ -92,13 +95,15 @@ $allComments = Comment::getAll($postId);
                     <div>
 
                         
-
+                    <?php if($sessionId != 0) : ?>
                         <div class="post_comments">
                             <div class="post_comments_form">
                                 <input class="comment_input" type="text" id="commentText" placeholder="Antwoord op vraag">
                                 <a href="#" class="post_comment_button" id="btnAddComment" data-postid="<?php echo $postData['id']; ?>">Plaats</a>
                             </div>
                         </div>
+                    <?php endif; ?>
+                        
 
                         <div class="comments">
 
@@ -107,7 +112,7 @@ $allComments = Comment::getAll($postId);
                                     <li>
                                         <div class="comment">
                                             <a href="user.php?id=<?php echo $postData['user_id'] ?>"><p class="username_title comment_title"><?php echo  $c['firstname'] ?> <?php echo  $c['lastname'] ?></p></a>
-                                            <p class="comment_text"><?php echo $c['comment'] ?></p>
+                                            <p class="comment_text"><?php echo htmlspecialchars($c['comment']) ?></p>
                                         </div>
                                         <p class="updated_when"><?php echo $c['date'] ?></p>
                                     </li>
@@ -156,7 +161,7 @@ $allComments = Comment::getAll($postId);
                 location.reload();
             })
             .catch(error => {
-            console.error('Error:', error);
+                console.error('Error:', error);
             });
 
             //let commentCount = parseInt(e.querySelector(".commentCount").innerHTML);

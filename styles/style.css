@@ -16,6 +16,7 @@
 body {
     background-color: var(--backgroundGray);
     font-family: brandon-grotesque, sans-serif;
+    overflow-y: scroll;
 }
 
 /* ------------- NAV ------------- */
@@ -40,7 +41,6 @@ header {
     justify-content: space-between;
     padding: 0.5em 5em;
     background-color: var(--backgroundGray);
-    z-index: 5;
 }
 
 .user_details_nav {
@@ -49,6 +49,12 @@ header {
 
 .nav_search{
     padding: 0 3em;
+}
+
+.nav_btn {
+    color: var(--buttonOrange);
+    padding: 0 0.5em;
+    font-weight: bold;
 }
 
 .user_details {
@@ -146,23 +152,23 @@ header {
     position: absolute;
     background-color: white;
     border-radius: 5px;
-    width: 250px;
+    width: 300px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5;
+    
 }
 
 .dropdown:hover .dropdown_menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .dropdown_item {
-    padding: 1.5em 0.5em;
+    padding: 0em 0.5em;
     text-decoration: none;
     color: var(--grayBlue);
     font-weight: bold;
-    font-size: 1em;
-    padding: 1.1em 1em;
+    font-size: 0.9em;
+    padding: 0.7em 1em;
     font-family: futura-pt, sans-serif;
 }
 
@@ -173,6 +179,7 @@ header {
 
 .dropdown{
     margin: 0 0.5em;
+    
 }
 
 
@@ -267,7 +274,7 @@ header {
     flex-flow: row;
     justify-content: center;
     padding-top: 1em;
-    z-index: -1;
+    
 }
 
 .main_login {
@@ -323,7 +330,6 @@ header {
 
 .block3 {
     width: 30%;
-    z-index: -2;
 }
 
 .block3_friendlist {
@@ -833,6 +839,7 @@ header {
 
 .friend_nav{
     padding: 0 2em;
+    
 }
 
 .friends_item {

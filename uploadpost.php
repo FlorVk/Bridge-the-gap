@@ -1,11 +1,12 @@
 <?php
     require_once("bootstrap.php");
-
     session_start();
     if (isset($_SESSION['id'])) {
         $user = new User();
         $sessionId = $_SESSION['id'];
         $userData = User::getUserFromId($sessionId);
+    } else {
+        header('location: login.php');
     }
 
     $category2 = $_GET['category'];

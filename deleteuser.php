@@ -13,6 +13,8 @@ if (isset($_SESSION['id']) && !empty($_POST['password'])) {
     } catch (Throwable $error) {
         $error = $error->getMessage();
     }
+} else {
+    header('location: login.php');
 }
 ?>
 

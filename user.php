@@ -3,6 +3,13 @@
 include_once("bootstrap.php");
 
 session_start();
+    if(!isset($_SESSION['id'])) {
+        header('location: login.php');
+    } else{
+        $user = new User();
+        $sessionId = $_SESSION['id'];
+        $userData = User::getUserFromId($sessionId);
+    }
 
 $sessionId = $_SESSION['id'];
 $userId = $_GET['id'];

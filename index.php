@@ -27,8 +27,14 @@ if (isset($_GET['category']) && $_GET['category'] === 'Alles') {
     $allPosts = $post->getAllPostsLimit(); 
 }
 
-$sessionId = $_SESSION['id'];
-$user = User::getUserFromId($sessionId);
+$sessionId = 0;
+
+if(isset($_SESSION['id'])){
+    $sessionId = $_SESSION['id'];
+    $user = User::getUserFromId($sessionId);
+}
+
+
 
 
 
@@ -59,10 +65,11 @@ $user = User::getUserFromId($sessionId);
     
         <div class="posts block2_index">
             <div class="index_add">
+                <?php if($sessionId != 0) : ?>
                 <div class="index_input_box">
-                    <a class="post_userinfo" href="user.php?id=<?php echo $user['id']?>" >
-                        <img class="profilepicture_small" src="./images/profilepictures/<?php echo $user['profilepicture'] ?>" alt="">
-                    </a>
+                        <a class="post_userinfo" href="user.php?id=<?php echo $user['id']?>" >
+                            <img class="profilepicture_small" src="./images/profilepictures/<?php echo $user['profilepicture'] ?>" alt="">
+                        </a>
                     <form class="index_post_form" action="uploadpost.php" method="get">
                         <input class="index_post_input " type="text" name="vraag" placeholder="Stel een vraag...">
                         <input type="hidden" name="category" value="Vraag"/>
@@ -70,11 +77,19 @@ $user = User::getUserFromId($sessionId);
                     
                 </div>
                 
+                
                 <div class="make_post">
                     <a class="index_post_button" href="uploadpost.php?category=Vraag"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
                     <a class="index_post_button" href="uploadpost.php?category=Oplossing"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Oplossing</a>
                     <a class="index_post_button" href="uploadpost.php?category=Bericht"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
                 </div>
+                <?php endif; ?>
+
+                <?php if($sessionId == 0) : ?>
+                    <div class="index_input_box">
+                        <a href="login.php"><span class="span_login">Log in</span> bij Bridge the Gap om een vraag te posten!</a>
+                    </div>
+                <?php endif; ?>
             </div>
             <?php foreach ($allPosts as $p) : ?>
                 <?php $allComments = Comment::getAll($p['id']); ?>
