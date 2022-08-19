@@ -27,6 +27,7 @@ $fullnamePoster = $firstNamePoster . " " . $lastNamePoster;
 $comment = new Comment;
 $allComments = Comment::getAll($postId); 
 $allLikes = Like::getAll($postId);
+$allTips = Tip::getAll($postId);
 
 
 
@@ -94,25 +95,36 @@ $allLikes = Like::getAll($postId);
 
                     <div>
 
-                    <div class="likesContainer">
-                            <div class="post__foot__likes">
-                                <?php if(Like::isPostLiked($user['id'], $postData['id'])): ?>
-                                    <a href="#" id="btnAddLike" data-postid="<?php echo $postData['id']; ?>" data-isliked="false" data-username="<?php echo $userData['firstname']; ?>" data-userid="<?php echo $userData['id']; ?>"><img class="nav-icon" src="images/components/home.svg" alt="Number of likes" /></a>
-                                <?php else: ?>
-                                    <a href="#" id="btnAddLike" data-postid="<?php echo $postData['id']; ?>" data-isliked="true" data-username="<?php echo $userData['firstname']; ?>" data-userid="<?php echo $userData['id']; ?>"><img class="nav-icon" src="images/components/home.svg" alt="Number of likes" /></a>
-                                <?php endif; ?>
-                                <span class="likeCount"><?php echo count($allLikes); ?></span>
-                            </div>
-                            <ul class="hoverBubble">
-                                <?php foreach($allLikes as $like): ?>
-                                    <?php if($like['user_id'] == $sessionId): ?>
-                                        <li data-likeuserid="current-user"><?php echo htmlspecialchars($like['firstname']) ?></li>
-                                    <?php else: ?>
-                                        <li data-likeuserid="<?php echo $like['user_id']; ?>"><?php echo htmlspecialchars($like['firstname']); ?></li>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </ul>
+                    <div class="post_info">
+                        <div class="likesContainer">
+                                <div class="post_likes">
+                                    <?php
+                                        if (Like::checkLiked($user['id'], $postData['id']) == 2 ){
+                                            echo '<input type="button" data-postid="'.$postData['id'].'" class="btn_like" id="btnAddLike" name="like"  value=""/ >';
+                                            }
+                                        else {
+                                            echo '<input type="button" data-postid="'.$postData['id'].'" class="btn_unlike" id="btnAddUnlike" name="like"  value=""/ >';
+                                            }
+                                    ?>
+
+                                    <div>
+                                        <p class="likeCount"><?php echo count($allLikes); ?></p>
+                                    </div>
+                                </div>
+                                
                         </div>
+
+                        <div class="post_tipped">
+                                <?php
+                                        if (Like::checkTipped($user['id'], $postData['id']) == 2 ){
+                                        echo '<input type="button" data-postid="'.$postData['id'].'" class="btn_tip" id="btnAddTip" name="tip"  value="Tip van de dag"/ >';
+                                        }
+                                    else {
+                                        echo '<input type="button" data-postid="'.$postData['id'].'" class="btn_untip" id="btnAddUntip" name="tip"  value="Toch maar niet"/ >';
+                                        }
+                                ?>
+                        </div>
+                    </div>
                         
                     <?php if($sessionId != 0) : ?>
                         <div class="post_comments">
@@ -154,45 +166,6 @@ $allLikes = Like::getAll($postId);
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        document.querySelector("#btnAddComment").addEventListener("click", function() {
-            let postId = this.dataset.postid;
-            let text = document.querySelector("#commentText").value;
-        
-            event.preventDefault();
-            console.log(postId);
-            console.log(text);
-
-            const formData = new FormData();
-
-            formData.append('text', text);
-            formData.append('postId', postId);
-
-            fetch('ajax-add_comment.php', {
-            method: 'POST',
-            body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                let newComment = document.createElement('ul');
-                newComment.innerHTML = result.data.user + ": " + result.data.comment;
-                document.querySelector(".commentsList").appendChild(newComment);
-                location.reload();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-            //let commentCount = parseInt(e.querySelector(".commentCount").innerHTML);
-            //commentCount++;
-            //e.querySelector('.commentCount').innerHTML = commentCount;
-            }); 
-  
-    </script>
-    <script>
-        document.querySelector("#btnAddComment").addEventListener("click", function() {
-           
-            }); 
-    </script>
+    <script src="ajax/detailpage.js"></script>
 </body>
 </html>

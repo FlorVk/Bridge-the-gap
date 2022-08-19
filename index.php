@@ -93,6 +93,7 @@ if(isset($_SESSION['id'])){
             </div>
             <?php foreach ($allPosts as $p) : ?>
                 <?php $allComments = Comment::getAll($p['id']); ?>
+                <?php $allLikes = Like::getAll($p['id']); ?>
                 <div class="post">
                         <div class="posterContainer">
                             <div class="poster_head">
@@ -134,6 +135,34 @@ if(isset($_SESSION['id'])){
                         
                 </div>
                 <div class="post_bottom">
+                <div class="likesContainer">
+                            <div class="post_likes">
+                                <?php
+                                     if (Like::checkLiked($user['id'], $p['id']) == 2 ){
+                                        echo '<input type="button" data-postid="'.$p['id'].'" class="btn_like" id="btnAddLike" name="like"  value=""/ >';
+                                        }
+                                    else {
+                                        echo '<input type="button" data-postid="'.$p['id'].'" class="btn_unlike" id="btnAddUnlike" name="like"  value=""/ >';
+                                        }
+                                ?>
+
+                                <div>
+                                    <p class="likeCount"><?php echo count($allLikes); ?></p>
+                                </div>
+                            </div>
+                            
+                    </div>
+
+                    <div class="post_tipped">
+                                <?php
+                                     if (Like::checkTipped($user['id'], $p['id']) == 2 ){
+                                        echo '<input type="button" data-postid="'.$p['id'].'" class="btn_tip" id="btnAddTip" name="tip"  value="Tip van de dag"/ >';
+                                        }
+                                    else {
+                                        echo '<input type="button" data-postid="'.$p['id'].'" class="btn_untip" id="btnAddUntip" name="tip"  value="Toch maar niet"/ >';
+                                        }
+                                ?>
+                            </div>
                     <div>
                         <p class="countComments">Comments: <?php echo count($allComments); ?></p>
                     </div>
@@ -184,6 +213,8 @@ if(isset($_SESSION['id'])){
         <?php include('footer.php'); ?>
     </footer>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="ajax/index.js"></script>
     
 </body>
 </html>

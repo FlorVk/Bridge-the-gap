@@ -374,6 +374,44 @@ header {
     font-size: 1.1em;
 }
 
+.btn_tip {
+    border-radius: 5px;
+    border: #F47C2C 3px solid;
+    padding: 0.4em 1em;
+    background-color: #F47C2C;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn_untip {
+    border-radius: 5px;
+    border: #F47C2C 3px solid;
+    padding: 0.4em 1em;
+    color: #F47C2C;
+    background-color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn_like {
+    background: url(../images/components/heart-regular.svg) no-repeat;
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn_unlike {
+    background: url(../images/components/heart-solid.svg) no-repeat;
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+}
+
 .button{
     border-radius: 5px;
     border: #F47C2C 3px solid;
@@ -604,12 +642,11 @@ header {
 }
 
 .post_bottom {
-    
     border-top: none;
     margin-bottom: 2em;
     padding: 1em;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     border-bottom-left-radius: 10px ;
     border-bottom-right-radius: 10px ;
     background-color: white;
@@ -645,6 +682,23 @@ header {
 
 .index_post_form {
    padding: 0 1em;
+}
+
+.post_likes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.likeCount {
+    padding-left: 1em;
+}
+
+.post_info{
+    margin-bottom: 2em;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ------------- MAKE POST ------------- */
@@ -892,7 +946,7 @@ header {
 .post_comments {
     display: flex;
     flex-flow: column;
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 .comment {
