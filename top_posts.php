@@ -4,28 +4,8 @@ include_once("bootstrap.php");
 
 session_start();
 
-if (isset($_GET['search'])) {
-    $post = new Post;
-    $allPosts = $post->getAllPostsLimitFiltered($_GET['search']);
-} else {
-    $post = new Post;
-    $allPosts = $post->getAllPostsLimit();
-}
-
-if (isset($_GET['category'])) {
-    $post = new Post;
-    $allPosts = $post->getAllPostsLimitCategory($_GET['category']); 
-}
-
-if (isset($_GET['category2'])) {
-    $post = new Post;
-    $allPosts = $post->getAllPostsLimitCategory($_GET['category2']); 
-}
-
-if (isset($_GET['category']) && $_GET['category'] === 'Alles') {
-    $post = new Post;
-    $allPosts = $post->getAllPostsLimit(); 
-}
+$post = new Post;
+$allPosts = $post->getAllTop();
 
 $sessionId = 0;
 
@@ -33,7 +13,6 @@ if(isset($_SESSION['id'])){
     $sessionId = $_SESSION['id'];
     $user = User::getUserFromId($sessionId);
 }
-
 
 
 
@@ -63,37 +42,18 @@ if(isset($_SESSION['id'])){
             </div>
         </div>
     
-        <div class="posts block2_index">
-            <div class="index_add">
-                <?php if($sessionId != 0) : ?>
-                <div class="index_input_box">
-                        <a class="post_userinfo" href="user.php?id=<?php echo $user['id']?>" >
-                            <img class="profilepicture_small" src="./images/profilepictures/<?php echo $user['profilepicture'] ?>" alt="">
-                        </a>
-                    <form class="index_post_form" action="uploadpost.php" method="get">
-                        <input class="index_post_input " type="text" name="vraag" placeholder="Stel een vraag...">
-                        <input type="hidden" name="category" value="Vraag"/>
-                    </form>
-                    
-                </div>
-                
-                
-                <div class="make_post">
-                    <a class="index_post_button" href="uploadpost.php?category=Vraag"><img class="question-icon" src="./images/components/Group 45.svg" alt="">Vraag</a>
-                    <a class="index_post_button" href="uploadpost.php?category=Oplossing"><img class="question-icon" src="./images/components/Group 46.svg" alt="">Oplossing</a>
-                    <a class="index_post_button" href="uploadpost.php?category=Bericht"><img class="question-icon" src="./images/components/Group 47.svg" alt="">Bericht</a>
-                </div>
-                <?php endif; ?>
+        <div class="posts block2_top">
+            <div class="index_add index_top">
+            <h1 class="title">Tips van de dag!</h1>
+            <p>Dit bevelen andere aan:</p>
 
-                <?php if($sessionId == 0) : ?>
-                    <div class="index_input_box">
-                        <a href="login.php"><span class="span_login">Log in</span> bij Bridge the Gap om een vraag te posten!</a>
-                    </div>
-                <?php endif; ?>
+                
             </div>
+            <div class="top_posts">
             <?php foreach ($allPosts as $p) : ?>
                 <?php $allComments = Comment::getAll($p['id']); ?>
                 <?php $allLikes = Like::getAll($p['id']); ?>
+                <div class="top_post">
                 <div class="post">
                         <div class="posterContainer">
                             <div class="poster_head">
@@ -167,8 +127,11 @@ if(isset($_SESSION['id'])){
                         <p class="countComments">Comments: <?php echo count($allComments); ?></p>
                     </div>
                 </div>
+                </div>
                 
             <?php endforeach; ?>
+            </div>
+            
 
             <?php if(empty($allPosts)): ?>
                 <div>
@@ -189,23 +152,7 @@ if(isset($_SESSION['id'])){
 
         </div>
 
-        <div class="block3">
-            <div class="block3_right">
-                
-
-                <form class="category" action="" method="get">
-                    <ul class="category_items">
-                        <li class="category_title">Categorieën</li>
-                        <li><input class="category_btn" type="submit" name="category" value="Alles"></li>
-                        <li><input class="category_btn" type="submit" name="category" value="Algemeen"></li>
-                        <li><input class="category_btn" type="submit" name="category" value="Technologie"></li>
-                        <li><input class="category_btn" type="submit" name="category" value="Huishouden"></li>
-                        <li><input class="category_btn" type="submit" name="category" value="Koken"></li>
-                    </ul>      
-                </form>
-            </div>
-            
-        </div>
+        
 
     </div>
 

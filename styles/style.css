@@ -313,6 +313,13 @@ header {
     background-color: white;
 }
 
+.block2_top{
+    width: 70%;
+    margin: 1em;
+    
+    
+}
+
 .block2_settings{
     width: 70%;
     display: flex;
@@ -1091,4 +1098,21 @@ header {
 
 .block2_title {
     margin: 1em 3em;
+}
+
+/* ------------- TOP POSTS ------------- */
+
+.top_posts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top_post {
+    width: 40%;
+    margin: 0 1em;
+}
+
+.index_top {
+    width: 90%;
+    text-align: center;
 }

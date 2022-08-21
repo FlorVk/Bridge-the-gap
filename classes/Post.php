@@ -253,6 +253,34 @@
             return $result;
         }
 
+        public static function getAllTop()
+        {
+            global $page;
+            global $total_pages;
+
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $conn = Db::getInstance();
+
+            // pagination 
+            $limit = 6;
+            $offset = ($page - 1) * $limit;
+
+
+            // totaal aantal pagina's nemen
+            $stmt = $conn->query("SELECT COUNT(*) FROM `posts`;");
+            $total_results = $stmt->fetchColumn();
+            $total_pages = ceil($total_results / $limit);
+            $sql = "SELECT * FROM `posts` WHERE tips >= 2 ORDER BY `time_posted` DESC LIMIT $offset, $limit;";
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+
         public static function getPost($postId)
         {
             $conn = Db::getInstance();
@@ -303,6 +331,22 @@
             $conn = Db::getInstance();
             $statement = $conn->prepare("DELETE FROM posts WHERE id = :post_id");
             $statement->bindValue(':post_id', $id);
+            $statement->execute();
+        }
+
+        public static function addTip($id){
+
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE posts SET tips = tips + 1 WHERE id = :postId");
+            $statement->bindValue(':postId', $id);
+            $statement->execute();
+        }
+
+        public static function removeTip($id){
+
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE posts SET tips = tips - 1 WHERE id = :postId");
+            $statement->bindValue(':postId', $id);
             $statement->execute();
         }
 

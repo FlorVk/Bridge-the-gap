@@ -17,6 +17,7 @@ if (isset($_POST['post'])) {
             $tip = new Tip();
             $tip->setPostId($postId);
             $tip->setUserId($userId);
+            Post::removeTip($postId);
 
             $tip->untipPost($userId, $postId);
         }     

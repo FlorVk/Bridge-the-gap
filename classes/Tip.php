@@ -24,7 +24,7 @@
 
         public static function getAll($postId){
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT * FROM likes INNER JOIN users ON users.id = likes.user_id WHERE post_id = :postId");
+            $statement = $conn->prepare("SELECT * FROM tips INNER JOIN users ON users.id = tips.user_id WHERE post_id = :postId");
             $statement->bindValue(":postId", $postId);
             $result = $statement->execute();
             $allLikes = $statement->fetchAll(PDO::FETCH_ASSOC);
