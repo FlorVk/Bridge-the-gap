@@ -320,6 +320,11 @@ header {
     
 }
 
+.block2_usersettings{
+    width: 70%;
+    padding-right: 7em;
+}
+
 .block2_settings{
     width: 70%;
     display: flex;
@@ -604,6 +609,11 @@ header {
 .user_list {
     overflow-y:auto;
     max-height: 200px;
+
+}
+
+.user_list::-webkit-scrollbar {
+    width: 0px;
 }
 
 /* ------------- INDEX ------------- */
@@ -906,7 +916,7 @@ header {
 .friends_item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-;
 }
 
 .friends_title{
@@ -918,6 +928,7 @@ header {
 .friends_profile {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .icon {
@@ -1115,4 +1126,55 @@ header {
 .index_top {
     width: 90%;
     text-align: center;
+}
+
+/* ------------- CHAT ------------- */
+
+.chat_box {
+    background-color: white;
+    height: 450px;
+    padding: 0.5em 1em;
+    overflow-y: auto;
+}
+
+.chat_outgoing {
+    display: flex;
+   
+}
+
+.chat_details_incoming{
+    background: #a0cde3;
+    max-width: calc(100% - 130px);
+    border-radius: 15px 15px 15px 0;
+}
+
+.chat_incoming {
+    display: flex;
+   
+}
+
+.chat_details_outgoing{
+    background: #376D87;
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+    border-radius: 15px 15px 0 15px;
+}
+
+.chat_text {
+    padding: 0.5em 1em;
+    word-wrap: break-word;
+}
+
+.chat_box::-webkit-scrollbar {
+    width: 0px;
+}
+
+.chat-btn {
+    margin-left: 5em;
+    background-color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 15px;
+    color: var(--buttonOrange);
 }

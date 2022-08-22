@@ -309,7 +309,19 @@
             $result = $statement->fetchAll();
             return $result;
         }
+
+        public static function getAllUsers()
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM `users`");
+            $statement->execute();
+            $result = $statement->fetchAll();
+            return $result;
+        }
+    
     }
+
+    
 
     
 

@@ -30,8 +30,9 @@
                             <div class="friends_profile">
                                 <img class="profilepicture_small" src="./images/profilepictures/<?php echo $friend->getUserByFriendId($f['to_id'])['profilepicture'] ?>" alt="">
                                 <h1 class="user_name username_title"><?php echo $friend->getUserByFriendId($f['to_id'])['firstname'] ?> <?php echo $friend->getUserByFriendId($f['to_id'])['lastname'] ?></h1>
+                                <a class="chat-btn" href="chat.php?id=<?php echo $f['to_id'] ?>">Chat</a>
                             </div>
-                            <p class="icon">></p>
+                            
                         </a>
                     </div>
                     
@@ -54,8 +55,9 @@
                             <div class="friends_profile">
                                 <img class="profilepicture_small" src="./images/profilepictures/<?php echo $u['profilepicture'] ?>" alt="">
                                 <h1 class="user_name username_title"><?php echo $u['firstname'] ?> <?php echo $u['lastname'] ?></h1>
+                                <a class="chat-btn" href="chat.php?id=<?php echo $u['id'] ?>">Chat</a>
                             </div>
-                            <p class="icon">></p>
+                            
                         </a>
                     </div>
                 <?php endforeach; ?>

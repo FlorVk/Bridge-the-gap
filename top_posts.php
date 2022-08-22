@@ -44,8 +44,8 @@ if(isset($_SESSION['id'])){
     
         <div class="posts block2_top">
             <div class="index_add index_top">
-            <h1 class="title">Tips van de dag!</h1>
-            <p>Dit bevelen andere aan:</p>
+            <h1 class="title_big">Tips van de dag!</h1>
+            <p class="title_appleBlue_settings">Dit bevelen andere aan:</p>
 
                 
             </div>

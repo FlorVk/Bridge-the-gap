@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="block2">
+        <div class="block2_top block2_usersettings">
             <div class="usersettings_box">
                 
             <h1 class="title">Account instellingen</h1>
@@ -69,11 +69,7 @@
             </div>
         </div>
 
-        <div class="block3">
-            <div class="block3_right">
-            
-            </div>
-        </div>
+        
         
     </div>
 
